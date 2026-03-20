@@ -166,10 +166,10 @@ kubectl run verify-dns --image=busybox --rm -it --restart=Never -- cat /etc/reso
 ### 결과 비교
 
 ```bash
-echo "=== Baseline (5 runs) ===" && cat ./results/baseline/summary.json
-echo ""
-echo "=== LocalDNS (5 runs) ===" && cat ./results/localdns/summary.json
+python3 scripts/compare_results.py
 ```
+
+> 각 phase의 run별 테이블 + Baseline vs LocalDNS 평균 비교 테이블을 `results/comparison.md`로 출력한다.
 
 ---
 
