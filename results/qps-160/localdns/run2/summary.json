@@ -1,0 +1,20 @@
+{
+  "run": "run2",
+  "phase": "localdns",
+  "qps_target": 160,
+  "pods_collected": 250,
+  "total_queries": 2399969,
+  "queries_sent": 2399969,
+  "queries_completed": 2399969,
+  "queries_lost": 0,
+  "queries_lost_pct": 0.0,
+  "qps_total": 39999.44,
+  "latency_avg_ms": 0.1141,
+  "latency_min_ms": 0.048,
+  "latency_max_ms": 75.966,
+  "latency_stddev_ms": 0.3152,
+  "latency_p50_ms": 0.097,
+  "latency_p90_ms": 0.148,
+  "latency_p95_ms": 0.177,
+  "latency_p99_ms": 0.304
+}
