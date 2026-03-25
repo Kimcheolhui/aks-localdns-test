@@ -3,7 +3,8 @@
 dnsperf 결과 집계 스크립트.
 
 사용법:
-  python3 scripts/aggregate_results.py <baseline|localdns>
+  python3 scripts/aggregate_results.py <qps> <baseline|localdns>
+  예: python3 scripts/aggregate_results.py 40 baseline
 
 각 run 디렉토리의 Pod 로그를 파싱하여:
   1. 개별 쿼리 latency를 수집 (-v 옵션 출력)
@@ -72,7 +73,7 @@ def parse_pod_log(filepath: Path) -> dict:
     }
 
 
-def aggregate_run(run_dir: Path, phase: str) -> dict | None:
+def aggregate_run(run_dir: Path, phase: str, qps: str) -> dict | None:
     """하나의 run 디렉토리를 집계."""
     raw_dir = run_dir / "raw"
     if not raw_dir.exists():
@@ -111,6 +112,7 @@ def aggregate_run(run_dir: Path, phase: str) -> dict | None:
     summary = {
         "run": run_dir.name,
         "phase": phase,
+        "qps_target": int(qps),
         "pods_collected": len(pod_summaries),
         "total_queries": len(latencies_ms),
         "queries_sent": total_sent,
@@ -138,21 +140,22 @@ def aggregate_run(run_dir: Path, phase: str) -> dict | None:
 
 
 def main():
-    if len(sys.argv) < 2:
-        print("Usage: python3 scripts/aggregate_results.py <baseline|localdns>")
+    if len(sys.argv) < 3:
+        print("Usage: python3 scripts/aggregate_results.py <qps> <baseline|localdns>")
         sys.exit(1)
 
-    phase = sys.argv[1]
-    phase_dir = Path("results") / phase
+    qps = sys.argv[1]
+    phase = sys.argv[2]
+    phase_dir = Path("results") / f"qps-{qps}" / phase
 
     if not phase_dir.exists():
         print(f"Error: {phase_dir} not found")
         sys.exit(1)
 
-    print(f"=== Aggregating results for: {phase} ===\n")
+    print(f"=== Aggregating results for: qps-{qps}/{phase} ===\n")
 
     for run_dir in sorted(phase_dir.glob("run*")):
-        summary = aggregate_run(run_dir, phase)
+        summary = aggregate_run(run_dir, phase, qps)
         if summary:
             print(f"  {summary['run']}:  "
                   f"avg={summary['latency_avg_ms']}ms  "
@@ -162,7 +165,7 @@ def main():
                   f"qps={summary['qps_total']}  "
                   f"lost={summary['queries_lost_pct']}%")
 
-    print(f"\nDone. results/{phase}/runN/summary.json")
+    print(f"\nDone. results/qps-{qps}/{phase}/runN/summary.json")
 
 
 if __name__ == "__main__":

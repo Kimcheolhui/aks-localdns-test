@@ -1,24 +1,30 @@
 #!/bin/bash
 set -euo pipefail
 
-PHASE=${1:?Usage: $0 <baseline|localdns> [runs]}
-RUNS=${2:-5}
+# 사용법: ./scripts/run-test.sh <phase> <qps> [runs]
+#   예: ./scripts/run-test.sh baseline 40 5
+#       ./scripts/run-test.sh localdns 80 5
+
+PHASE=${1:?Usage: $0 <baseline|localdns> <qps> [runs]}
+QPS=${2:?Usage: $0 <baseline|localdns> <qps> [runs]}
+RUNS=${3:-5}
 NAMESPACE="dnsperf"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_DIR="$(dirname "${SCRIPT_DIR}")"
 
 for i in $(seq 1 ${RUNS}); do
-  JOB_NAME="dnsperf-${PHASE}-run${i}"
-  OUTPUT_DIR="${PROJECT_DIR}/results/${PHASE}/run${i}"
+  JOB_NAME="dnsperf-${PHASE}-q${QPS}-run${i}"
+  OUTPUT_DIR="${PROJECT_DIR}/results/qps-${QPS}/${PHASE}/run${i}"
   mkdir -p "${OUTPUT_DIR}/raw"
 
   echo ""
   echo "========================================"
-  echo " [Run ${i}/${RUNS}] ${JOB_NAME}"
+  echo " [Run ${i}/${RUNS}] ${JOB_NAME} (QPS=${QPS})"
   echo "========================================"
 
-  # Job 생성 (job name만 변경하여 apply)
-  sed "s/name: dnsperf-baseline-run1/name: ${JOB_NAME}/" \
+  # Job 생성 (job name + QPS 변경하여 apply)
+  sed -e "s/name: dnsperf-baseline-run1/name: ${JOB_NAME}/" \
+      -e "s/-Q 40/-Q ${QPS}/" \
     "${PROJECT_DIR}/manifests/dnsperf-job.yaml" \
     | kubectl apply -f -
 
@@ -26,12 +32,11 @@ for i in $(seq 1 ${RUNS}); do
   echo "Waiting for job completion..."
   kubectl wait --for=condition=complete job/${JOB_NAME} -n ${NAMESPACE} --timeout=600s
 
-  # 결과 수집
+  # 결과 수집 (병렬)
   echo "Collecting results..."
   PODS=$(kubectl get pods -n ${NAMESPACE} -l job-name=${JOB_NAME} -o jsonpath='{.items[*].metadata.name}')
-  for POD in ${PODS}; do
-    kubectl logs -n ${NAMESPACE} ${POD} > "${OUTPUT_DIR}/raw/${POD}.log" 2>/dev/null
-  done
+  echo "${PODS}" | tr ' ' '\n' | xargs -P 20 -I {} sh -c \
+    "kubectl logs -n ${NAMESPACE} {} > \"${OUTPUT_DIR}/raw/{}.log\" 2>/dev/null"
 
   # Job 삭제 (다음 run을 위해)
   kubectl delete job ${JOB_NAME} -n ${NAMESPACE}
@@ -46,4 +51,4 @@ for i in $(seq 1 ${RUNS}); do
 done
 
 echo ""
-echo "=== All ${RUNS} runs complete for phase: ${PHASE} ==="
+echo "=== All ${RUNS} runs complete for phase: ${PHASE}, QPS: ${QPS} ==="
