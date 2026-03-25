@@ -1,7 +1,7 @@
 targetScope = 'subscription'
 
 @description('Azure region for all resources')
-param location string = 'northeurope'
+param location string = 'swedencentral'
 
 @description('Resource group name')
 param resourceGroupName string = 'rg-localdns-test'
