@@ -6,6 +6,7 @@
   python3 scripts/generate_report.py
 
 results/summary.json 을 읽어서 experiment-result.md 를 생성한다.
+노드 수(5, 10) × QPS(20, 40, 80, 160) × Phase(baseline, localdns) 전체 매트릭스를 포함.
 """
 
 import json
@@ -67,16 +68,29 @@ def calc_diff(b_val, l_val) -> str:
     return f"{sign}{diff_pct:.1f}%"
 
 
-def get_qps_labels(data: dict) -> list[str]:
+def get_qps_labels(qps_data: dict) -> list[int]:
     """qps-20, qps-40, ... 에서 숫자만 추출하여 정렬."""
     labels = []
-    for key in data:
+    for key in qps_data:
         num = int(key.replace("qps-", ""))
         labels.append(num)
     return sorted(labels)
 
 
-def build_phase_table(data: dict, phase: str, qps_list: list[int]) -> str:
+def get_node_counts(data: dict) -> list[int]:
+    """5nodes, 10nodes 에서 숫자만 추출하여 정렬."""
+    counts = []
+    for key in data:
+        num = int(key.replace("nodes", ""))
+        counts.append(num)
+    return sorted(counts)
+
+
+def pod_count(nodes: int) -> int:
+    return nodes * 50
+
+
+def build_phase_table(qps_data: dict, phase: str, qps_list: list[int]) -> str:
     header = "| 지표 | " + " | ".join(f"QPS {q}" for q in qps_list) + " |"
     separator = "|------|" + "|".join("------:" for _ in qps_list) + "|"
 
@@ -84,7 +98,7 @@ def build_phase_table(data: dict, phase: str, qps_list: list[int]) -> str:
     for key, label in METRICS:
         values = []
         for q in qps_list:
-            runs = data.get(f"qps-{q}", {}).get(phase, [])
+            runs = qps_data.get(f"qps-{q}", {}).get(phase, [])
             if runs:
                 values.append(fmt(avg_runs(runs, key)))
             else:
@@ -94,17 +108,15 @@ def build_phase_table(data: dict, phase: str, qps_list: list[int]) -> str:
     return "\n".join(rows)
 
 
-def build_comparison_table(data: dict, qps_list: list[int]) -> str:
-    # 열: QPS 조건, 행: 지표별 Baseline / LocalDNS / 변화
+def build_comparison_table(qps_data: dict, qps_list: list[int]) -> str:
     header = "| Pod 당 QPS | " + " | ".join(label for _, label in COMPARISON_METRICS) + " |"
     separator = "|------|" + "|".join("------:" for _ in COMPARISON_METRICS) + "|"
 
     rows = [header, separator]
     for q in qps_list:
-        b_runs = data.get(f"qps-{q}", {}).get("baseline", [])
-        l_runs = data.get(f"qps-{q}", {}).get("localdns", [])
+        b_runs = qps_data.get(f"qps-{q}", {}).get("baseline", [])
+        l_runs = qps_data.get(f"qps-{q}", {}).get("localdns", [])
 
-        # Baseline 행
         b_cells = [f"| **{q}** - Baseline |"]
         l_cells = [f"| **{q}** - LocalDNS |"]
         d_cells = [f"| **{q}** - 변화량 |"]
@@ -123,7 +135,6 @@ def build_comparison_table(data: dict, qps_list: list[int]) -> str:
         rows.append("".join(b_cells))
         rows.append("".join(l_cells))
         rows.append("".join(d_cells))
-        # QPS 간 구분선
         if q != qps_list[-1]:
             rows.append("|" + "|".join(" " for _ in range(len(COMPARISON_METRICS) + 1)) + "|")
 
@@ -132,32 +143,43 @@ def build_comparison_table(data: dict, qps_list: list[int]) -> str:
 
 def main():
     data = load_summary()
-    qps_list = get_qps_labels(data)
+    node_counts = get_node_counts(data)
 
     lines = [
         "# AKS LocalDNS 실험 결과",
         "",
-        f"> 250 Pod × QPS {', '.join(str(q) for q in qps_list)} | 5회 시행 평균",
-        "",
-        "---",
-        "",
-        "## Baseline (LocalDNS OFF)",
-        "",
-        build_phase_table(data, "baseline", qps_list),
-        "",
-        "---",
-        "",
-        "## LocalDNS ON",
-        "",
-        build_phase_table(data, "localdns", qps_list),
-        "",
-        "---",
-        "",
-        "## Baseline vs LocalDNS 비교",
-        "",
-        build_comparison_table(data, qps_list),
+        f"> 노드 수: {', '.join(str(n) for n in node_counts)} | "
+        f"QPS: 20, 40, 80, 160 | 5회 시행 평균",
         "",
     ]
+
+    for nodes in node_counts:
+        nodes_key = f"{nodes}nodes"
+        qps_data = data.get(nodes_key, {})
+        if not qps_data:
+            continue
+
+        qps_list = get_qps_labels(qps_data)
+        pods = pod_count(nodes)
+
+        lines.extend([
+            "---",
+            "",
+            f"## {nodes}노드 ({pods} Pod)",
+            "",
+            "### Baseline (LocalDNS OFF)",
+            "",
+            build_phase_table(qps_data, "baseline", qps_list),
+            "",
+            "### LocalDNS ON",
+            "",
+            build_phase_table(qps_data, "localdns", qps_list),
+            "",
+            "### Baseline vs LocalDNS 비교",
+            "",
+            build_comparison_table(qps_data, qps_list),
+            "",
+        ])
 
     output = "\n".join(lines)
     output_path = Path("experiment-result.md")

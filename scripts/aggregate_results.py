@@ -141,22 +141,27 @@ def aggregate_run(run_dir: Path, phase: str, qps: str) -> dict | None:
 
 def main():
     if len(sys.argv) < 3:
-        print("Usage: python3 scripts/aggregate_results.py <qps> <baseline|localdns>")
+        print("Usage: python3 scripts/aggregate_results.py <qps> <baseline|localdns> [nodes=5]")
         sys.exit(1)
 
     qps = sys.argv[1]
     phase = sys.argv[2]
-    phase_dir = Path("results") / f"qps-{qps}" / phase
+    nodes = sys.argv[3] if len(sys.argv) > 3 else "5"
+    phase_dir = Path("results") / f"{nodes}nodes" / f"qps-{qps}" / phase
 
     if not phase_dir.exists():
         print(f"Error: {phase_dir} not found")
         sys.exit(1)
 
-    print(f"=== Aggregating results for: qps-{qps}/{phase} ===\n")
+    print(f"=== Aggregating results for: {nodes}nodes/qps-{qps}/{phase} ===\n")
 
     for run_dir in sorted(phase_dir.glob("run*")):
         summary = aggregate_run(run_dir, phase, qps)
         if summary:
+            summary["nodes"] = int(nodes)
+            # summary.json 다시 저장 (nodes 필드 포함)
+            with open(run_dir / "summary.json", "w") as f:
+                json.dump(summary, f, indent=2)
             print(f"  {summary['run']}:  "
                   f"avg={summary['latency_avg_ms']}ms  "
                   f"p50={summary['latency_p50_ms']}ms  "
@@ -165,7 +170,7 @@ def main():
                   f"qps={summary['qps_total']}  "
                   f"lost={summary['queries_lost_pct']}%")
 
-    print(f"\nDone. results/qps-{qps}/{phase}/runN/summary.json")
+    print(f"\nDone. results/{nodes}nodes/qps-{qps}/{phase}/runN/summary.json")
 
 
 if __name__ == "__main__":
