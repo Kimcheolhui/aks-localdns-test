@@ -149,7 +149,7 @@ def main():
         "# AKS LocalDNS 실험 결과",
         "",
         f"> 노드 수: {', '.join(str(n) for n in node_counts)} | "
-        f"QPS: 20, 40, 80, 160 | 5회 시행 평균",
+        f"QPS: 20, 40, 80, 160 | 3회 시행 평균",
         "",
     ]
 

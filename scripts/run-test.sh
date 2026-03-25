@@ -2,12 +2,12 @@
 set -euo pipefail
 
 # 사용법: ./scripts/run-test.sh <phase> <qps> [runs] [nodes]
-#   예: ./scripts/run-test.sh baseline 40 5 5
-#       ./scripts/run-test.sh localdns 80 5 10
+#   예: ./scripts/run-test.sh baseline 40 3 5
+#       ./scripts/run-test.sh localdns 80 3 10
 
-PHASE=${1:?Usage: $0 <baseline|localdns> <qps> [runs=5] [nodes=5]}
-QPS=${2:?Usage: $0 <baseline|localdns> <qps> [runs=5] [nodes=5]}
-RUNS=${3:-5}
+PHASE=${1:?Usage: $0 <baseline|localdns> <qps> [runs=3] [nodes=5]}
+QPS=${2:?Usage: $0 <baseline|localdns> <qps> [runs=3] [nodes=5]}
+RUNS=${3:-3}
 NODES=${4:-5}
 NAMESPACE="dnsperf"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
@@ -38,9 +38,28 @@ for i in $(seq 1 ${RUNS}); do
     "${MANIFEST}" \
     | kubectl apply -f -
 
-  # Job 완료 대기
+  # Job 완료 대기 (polling 방식 — watch 연결 끊김 방지)
   echo "Waiting for job completion..."
-  kubectl wait --for=condition=complete job/${JOB_NAME} -n ${NAMESPACE} --timeout=600s
+  elapsed=0
+  timeout=600
+  while [ ${elapsed} -lt ${timeout} ]; do
+    status=$(kubectl get job/${JOB_NAME} -n ${NAMESPACE} -o jsonpath='{.status.conditions[?(@.type=="Complete")].status}' 2>/dev/null || true)
+    if [ "${status}" = "True" ]; then
+      echo "Job ${JOB_NAME} completed."
+      break
+    fi
+    failed=$(kubectl get job/${JOB_NAME} -n ${NAMESPACE} -o jsonpath='{.status.conditions[?(@.type=="Failed")].status}' 2>/dev/null || true)
+    if [ "${failed}" = "True" ]; then
+      echo "Job ${JOB_NAME} failed!"
+      exit 1
+    fi
+    sleep 10
+    elapsed=$((elapsed + 10))
+  done
+  if [ ${elapsed} -ge ${timeout} ]; then
+    echo "Timeout waiting for job ${JOB_NAME}"
+    exit 1
+  fi
 
   # 결과 수집 (병렬)
   echo "Collecting results..."
