@@ -3,7 +3,7 @@
 ## 1. 실험 목적
 
 AKS 클러스터에서 LocalDNS 도입 전/후의 DNS 쿼리 latency 차이를 정량적으로 측정한다.
-QPS 부하 수준(20, 40, 80)별로 비교하여 부하 증가에 따른 LocalDNS 효과를 확인한다.
+QPS 부하 수준(20, 40, 80, 160)별, 노드 규모(5, 10)별로 비교하여 부하 및 클러스터 스케일에 따른 LocalDNS 효과를 확인한다.
 
 ---
 
@@ -14,18 +14,33 @@ QPS 부하 수준(20, 40, 80)별로 비교하여 부하 증가에 따른 LocalDN
 ```
 리소스 그룹     : rg-localdns-test
 클러스터 이름    : aks-localdns-test
-리전            : North Europe (northeurope)
+리전            : Sweden Central (swedencentral)
 Kubernetes 버전 : 1.33.7
 노드 풀         :
   - system pool : Standard_D4as_v6 x 2 (시스템 워크로드 전용)
-  - user pool   : Standard_D16as_v6 x 5 (dnsperf 워크로드, 노드당 ~50 Pod)
+  - user pool   : Standard_D16as_v6 x 5 또는 10 (dnsperf 워크로드, 노드당 ~50 Pod)
 네트워크 플러그인 : Azure CNI Overlay
 데이터플레인     : Cilium
-CoreDNS         : 기본 2 replica 유지
 노드 OS         : Ubuntu 22.04.05 LTS
 ```
 
-### 2.2 클러스터 프로비저닝 (azd + Bicep)
+### 2.2 실험 매트릭스
+
+| 변수 | 조건 |
+|------|------|
+| 노드 수 | 5, 10 |
+| LocalDNS | OFF (baseline), ON (localdns) |
+| Pod당 QPS | 20, 40, 80, 160 |
+| 반복 횟수 | 5회 (조건 당) |
+
+> 노드 수에 따라 CoreDNS replica 수와 총 Pod 수가 변동한다.
+
+| 노드 수 | dnsperf Pod | CoreDNS replica (예상) |
+|---------|-------------|----------------------|
+| 5 | 250 | 2 |
+| 10 | 500 | 3~4 |
+
+### 2.3 클러스터 프로비저닝 (azd + Bicep)
 
 인프라를 `azd` (Azure Developer CLI) + Bicep 으로 관리한다.
 
@@ -37,6 +52,27 @@ az aks get-credentials --resource-group rg-localdns-test --name aks-localdns-tes
 ```
 
 > Bicep 정의: `infra/main.bicep`, `infra/aks.bicep` / azd 설정: `azure.yaml`
+
+### 2.4 노드 스케일링
+
+```bash
+# 10노드로 증설
+az aks nodepool scale \
+  --name userpool \
+  --cluster-name aks-localdns-test \
+  --resource-group rg-localdns-test \
+  --node-count 10
+
+# CoreDNS replica 수 확인
+kubectl get deploy coredns -n kube-system
+
+# 5노드로 축소
+az aks nodepool scale \
+  --name userpool \
+  --cluster-name aks-localdns-test \
+  --resource-group rg-localdns-test \
+  --node-count 5
+```
 
 ---
 
@@ -71,28 +107,32 @@ dnsperf에 입력할 도메인 리스트를 ConfigMap으로 모든 Pod에 마운
 
 ### 4.1 테스트 조건
 
-250 Pod를 고정하고, Pod당 QPS를 변경하여 3가지 부하 수준에서 테스트한다.
+Pod당 QPS를 변경하여 4가지 부하 수준에서 테스트한다. Pod 수는 노드 수에 비례한다.
 
-| QPS 조건 | Pod당 QPS (`-Q`) | 총 QPS (250 Pod) | 비고 |
-|----------|------------------|-------------------|------|
-| **Low** | 20 | 5,000 | 경량 부하 |
-| **Medium** | 40 | 10,000 | AKS Blog 벤치마크 수준 |
-| **High** | 80 | 20,000 | 고부하 |
+| QPS 조건 | Pod당 QPS (`-Q`) | 총 QPS (5노드/250 Pod) | 총 QPS (10노드/500 Pod) |
+|----------|------------------|------------------------|-------------------------|
+| **Low** | 20 | 5,000 | 10,000 |
+| **Medium** | 40 | 10,000 | 20,000 |
+| **High** | 80 | 20,000 | 40,000 |
+| **Very High** | 160 | 40,000 | 80,000 |
 
 공통 설정:
 
 | 항목 | 값 |
 |------|------|
-| 노드 | D16as_v6 × 5 (노드당 ~50 Pod) |
-| Pod | 250 (parallelism=completions=250) |
+| 노드 | D16as_v6 × 5 또는 10 (노드당 ~50 Pod) |
 | Image | `guessi/dnsperf:latest` |
 | dnsperf 고정 옵션 | `-c 10` `-S 10` `-l 60` `-v` |
-| CoreDNS | 2 replica (기본값) |
-| 반복 횟수 | **5회** (phase × QPS 조건 당) |
+| 반복 횟수 | **5회** (조건 당) |
 
-### 4.2 dnsperf Job (`manifests/dnsperf-job.yaml`)
+### 4.2 dnsperf Job 매니페스트
 
-250개 Pod를 병렬 실행하는 Kubernetes Job. `-Q 40`이 기본값이며, `run-test.sh`가 실행 시 sed로 QPS를 동적 치환한다.
+| 매니페스트 | Pod 수 | 용도 |
+|-----------|--------|------|
+| `manifests/dnsperf-job-node5.yaml` | 250 (parallelism/completions) | 5노드 실험 |
+| `manifests/dnsperf-job-node10.yaml` | 500 (parallelism/completions) | 10노드 실험 |
+
+Pod를 병렬 실행하는 Kubernetes Job. `-Q 40`이 기본값이며, `run-test.sh`가 실행 시 sed로 QPS를 동적 치환한다.
 
 ### 4.3 반복 실행 스크립트 (`scripts/run-test.sh`)
 
@@ -102,7 +142,7 @@ dnsperf에 입력할 도메인 리스트를 ConfigMap으로 모든 Pod에 마운
 
 1. Job 이름과 `-Q` 값을 sed로 치환하여 `kubectl apply`
 2. `kubectl wait --for=condition=complete --timeout=600s` 로 완료 대기
-3. 모든 Pod 로그를 `results/qps-<Q>/<phase>/runN/raw/` 에 수집
+3. 모든 Pod 로그를 `results/qps-<Q>/<phase>/runN/raw/` 에 수집 (xargs -P 20 병렬)
 4. Job 삭제 → 30초 대기 → 다음 run
 
 ### 4.4 결과 집계 스크립트 (`scripts/aggregate_results.py`)
@@ -118,43 +158,69 @@ dnsperf에 입력할 도메인 리스트를 ConfigMap으로 모든 Pod에 마운
 5. **처리량**: queries sent/completed/lost, QPS
 6. 출력: `results/qps-<Q>/<phase>/runN/summary.json`
 
-### 4.5 비교 리포트 스크립트 (`scripts/compare_results.py`)
+### 4.5 리포트 스크립트
 
-사용법: `python3 scripts/compare_results.py [qps ...]`
-
-인자 없이 실행하면 `results/qps-*` 전체를 자동 탐색한다. QPS 조건별로 Baseline vs LocalDNS 비교 테이블을 생성하여 `results/comparison.md`로 출력한다.
+| 스크립트 | 용도 |
+|----------|------|
+| `scripts/collect_summary.py` | 전체 run summary를 `results/summary.json`으로 통합 |
+| `scripts/generate_report.py` | `results/summary.json`에서 `experiment-result.md` 생성 |
 
 ---
 
 ## 5. 실험 절차
 
-### Phase 1: Baseline 측정 (LocalDNS OFF)
+### Phase 1: Baseline — 5노드
 
 | 단계 | 작업 |
 |------|------|
-| 1-1 | `azd provision`으로 AKS 클러스터 생성 |
+| 1-1 | `azd provision`으로 AKS 클러스터 생성 (userpool 5노드) |
 | 1-2 | `kubectl apply -f manifests/dummy-services.yaml` |
 | 1-3 | `kubectl apply -f manifests/dnsperf-queryfile-cm.yaml` |
-| 1-4 | QPS 20 → 40 → 80 순서로 각 5회 실행 (아래 참조) |
-| 1-5 | 각 QPS별 집계 |
+| 1-4 | CoreDNS replica 수 확인: `kubectl get deploy coredns -n kube-system` |
+| 1-5 | QPS 20 → 40 → 80 → 160 각 5회 실행 |
+
+> 5노드 실험이므로 `dnsperf-job-node5.yaml` (250 Pod) 사용
 
 ```bash
-# QPS 20
-./scripts/run-test.sh baseline 20 5
-python3 scripts/aggregate_results.py 20 baseline
-
-# QPS 40
-./scripts/run-test.sh baseline 40 5
-python3 scripts/aggregate_results.py 40 baseline
-
-# QPS 80
-./scripts/run-test.sh baseline 80 5
-python3 scripts/aggregate_results.py 80 baseline
+for qps in 20 40 80 160; do
+  ./scripts/run-test.sh baseline $qps 5
+  python3 scripts/aggregate_results.py $qps baseline
+  sleep 30
+done
 ```
 
-### Phase 2: LocalDNS 활성화
+### Phase 2: Baseline — 10노드
 
 ```bash
+# 노드 증설
+az aks nodepool scale --name userpool --cluster-name aks-localdns-test \
+  --resource-group rg-localdns-test --node-count 10
+
+# CoreDNS replica 수 확인 (증가했는지)
+kubectl get deploy coredns -n kube-system
+```
+
+> 10노드 실험이므로 `dnsperf-job-node10.yaml` (500 Pod) 사용
+
+```bash
+for qps in 20 40 80 160; do
+  ./scripts/run-test.sh baseline $qps 5
+  python3 scripts/aggregate_results.py $qps baseline
+  sleep 30
+done
+```
+
+### Phase 3: LocalDNS — 5노드
+
+```bash
+# 노드 축소
+az aks nodepool scale --name userpool --cluster-name aks-localdns-test \
+  --resource-group rg-localdns-test --node-count 5
+
+# CoreDNS replica 수 확인 (원복했는지)
+kubectl get deploy coredns -n kube-system
+
+# LocalDNS 활성화
 az aks nodepool update \
   --name userpool \
   --cluster-name aks-localdns-test \
@@ -169,35 +235,49 @@ kubectl run verify-dns --image=busybox --rm -it --restart=Never \
   -- cat /etc/resolv.conf
 ```
 
-### Phase 3: LocalDNS 적용 후 측정 (LocalDNS ON)
+> 5노드 실험이므로 `dnsperf-job-node5.yaml` (250 Pod) 사용
 
 ```bash
-# QPS 20
-./scripts/run-test.sh localdns 20 5
-python3 scripts/aggregate_results.py 20 localdns
-
-# QPS 40
-./scripts/run-test.sh localdns 40 5
-python3 scripts/aggregate_results.py 40 localdns
-
-# QPS 80
-./scripts/run-test.sh localdns 80 5
-python3 scripts/aggregate_results.py 80 localdns
+for qps in 20 40 80 160; do
+  ./scripts/run-test.sh localdns $qps 5
+  python3 scripts/aggregate_results.py $qps localdns
+  sleep 30
+done
 ```
 
-### Phase 4: 결과 비교
+### Phase 4: LocalDNS — 10노드
 
 ```bash
-python3 scripts/compare_results.py
+# 노드 증설
+az aks nodepool scale --name userpool --cluster-name aks-localdns-test \
+  --resource-group rg-localdns-test --node-count 10
+
+# CoreDNS replica 수 확인
+kubectl get deploy coredns -n kube-system
 ```
 
-> QPS 조건별 Baseline vs LocalDNS 비교 테이블을 `results/comparison.md`로 출력한다.
+> 10노드 실험이므로 `dnsperf-job-node10.yaml` (500 Pod) 사용
+
+```bash
+for qps in 20 40 80 160; do
+  ./scripts/run-test.sh localdns $qps 5
+  python3 scripts/aggregate_results.py $qps localdns
+  sleep 30
+done
+```
+
+### Phase 5: 결과 통합 및 리포트
+
+```bash
+python3 scripts/collect_summary.py
+python3 scripts/generate_report.py
+```
 
 ---
 
 ## 6. 비교 항목
 
-각 QPS 조건(20, 40, 80)에 대해 Baseline과 LocalDNS 환경에서 각 5회 시행하고, 시행별로 다음 지표를 독립적으로 집계한다.
+각 조건(노드 수 × QPS × LocalDNS 유무)에 대해 5회 시행하고, 시행별로 다음 지표를 독립적으로 집계한다.
 
 - **Latency**: avg, min, max, stddev, p50, p90, p95, p99 (ms)
 - **처리량**: queries sent, queries completed, QPS achieved
@@ -210,7 +290,7 @@ python3 scripts/compare_results.py
 | 리소스 | 스펙 |
 |--------|------|
 | AKS system pool | Standard_D4as_v6 x 2 |
-| AKS user pool | Standard_D16as_v6 x 5 |
+| AKS user pool | Standard_D16as_v6 x 5 → 10 (스케일링) |
 
 > ⚠️ 실험 완료 후 반드시 리소스 삭제  
 > `azd down --purge --force`
@@ -232,22 +312,28 @@ aks-localdns-test/
 ├── manifests/
 │   ├── dummy-services.yaml         # Internal DNS 대상 서비스
 │   ├── dnsperf-queryfile-cm.yaml   # 쿼리 도메인 목록 ConfigMap
-│   └── dnsperf-job.yaml            # dnsperf Job (250 Pod, -Q 40 기본)
+│   ├── dnsperf-job-node5.yaml      # dnsperf Job (250 Pod, 5노드용)
+│   └── dnsperf-job-node10.yaml     # dnsperf Job (500 Pod, 10노드용)
 ├── scripts/
 │   ├── run-test.sh                 # 반복 실행 스크립트
 │   ├── aggregate_results.py        # 결과 집계 (Python)
-│   ├── compare_results.py          # 비교 리포트 생성 (Python)
+│   ├── collect_summary.py          # 전체 summary 통합 (Python)
+│   ├── generate_report.py          # 리포트 생성 (Python)
 │   └── requirements.txt            # Python 의존성
 └── results/
-    ├── qps-20/
-    │   ├── baseline/run1~5/        # run별 raw/ + summary.json
-    │   └── localdns/run1~5/
-    ├── qps-40/
-    │   ├── baseline/run1~5/
-    │   └── localdns/run1~5/
-    ├── qps-80/
-    │   ├── baseline/run1~5/
-    │   └── localdns/run1~5/
+    ├── 5nodes/
+    │   ├── qps-20/
+    │   │   ├── baseline/run1~5/
+    │   │   └── localdns/run1~5/
+    │   ├── qps-40/ ...
+    │   ├── qps-80/ ...
+    │   └── qps-160/ ...
+    ├── 10nodes/
+    │   ├── qps-20/ ...
+    │   ├── qps-40/ ...
+    │   ├── qps-80/ ...
+    │   └── qps-160/ ...
+    ├── summary.json                # 전체 통합 결과
     └── comparison.md               # 최종 비교 리포트
 ```
 
