@@ -136,13 +136,13 @@ Pod를 병렬 실행하는 Kubernetes Job. `-Q 40`이 기본값이며, `run-test
 
 ### 4.3 반복 실행 스크립트 (`scripts/run-test.sh`)
 
-사용법: `./scripts/run-test.sh <baseline|localdns> <qps> [runs=5]`
+사용법: `./scripts/run-test.sh <baseline|localdns> <qps> [runs=5] [nodes=5]`
 
 각 run에서 다음을 순차 수행한다:
 
 1. Job 이름과 `-Q` 값을 sed로 치환하여 `kubectl apply`
 2. `kubectl wait --for=condition=complete --timeout=600s` 로 완료 대기
-3. 모든 Pod 로그를 `results/qps-<Q>/<phase>/runN/raw/` 에 수집 (xargs -P 20 병렬)
+3. 모든 Pod 로그를 `results/<N>nodes/qps-<Q>/<phase>/runN/raw/` 에 수집 (xargs -P 20 병렬)
 4. Job 삭제 → 30초 대기 → 다음 run
 
 ### 4.4 결과 집계 스크립트 (`scripts/aggregate_results.py`)
@@ -156,7 +156,7 @@ Pod를 병렬 실행하는 Kubernetes Job. `-Q 40`이 기본값이며, `run-test
 3. **기본 지표**: avg, min, max, stddev (ms)
 4. **Percentile**: p50, p90, p95, p99 (ms)
 5. **처리량**: queries sent/completed/lost, QPS
-6. 출력: `results/qps-<Q>/<phase>/runN/summary.json`
+6. 출력: `results/<N>nodes/qps-<Q>/<phase>/runN/summary.json`
 
 ### 4.5 리포트 스크립트
 
@@ -168,6 +168,10 @@ Pod를 병렬 실행하는 Kubernetes Job. `-Q 40`이 기본값이며, `run-test
 ---
 
 ## 5. 실험 절차
+
+> 전체 자동 실행: `nohup ./scripts/run-all.sh > run-all.log 2>&1 &`
+
+아래는 각 Phase별 세부 내용이다. `run-all.sh`가 이 모든 단계를 순차 수행한다.
 
 ### Phase 1: Baseline — 5노드
 
@@ -183,8 +187,8 @@ Pod를 병렬 실행하는 Kubernetes Job. `-Q 40`이 기본값이며, `run-test
 
 ```bash
 for qps in 20 40 80 160; do
-  ./scripts/run-test.sh baseline $qps 5
-  python3 scripts/aggregate_results.py $qps baseline
+  ./scripts/run-test.sh baseline $qps 5 5
+  python3 scripts/aggregate_results.py $qps baseline 5
   sleep 30
 done
 ```
@@ -204,8 +208,8 @@ kubectl get deploy coredns -n kube-system
 
 ```bash
 for qps in 20 40 80 160; do
-  ./scripts/run-test.sh baseline $qps 5
-  python3 scripts/aggregate_results.py $qps baseline
+  ./scripts/run-test.sh baseline $qps 5 10
+  python3 scripts/aggregate_results.py $qps baseline 10
   sleep 30
 done
 ```
@@ -239,8 +243,8 @@ kubectl run verify-dns --image=busybox --rm -it --restart=Never \
 
 ```bash
 for qps in 20 40 80 160; do
-  ./scripts/run-test.sh localdns $qps 5
-  python3 scripts/aggregate_results.py $qps localdns
+  ./scripts/run-test.sh localdns $qps 5 5
+  python3 scripts/aggregate_results.py $qps localdns 5
   sleep 30
 done
 ```
@@ -260,8 +264,8 @@ kubectl get deploy coredns -n kube-system
 
 ```bash
 for qps in 20 40 80 160; do
-  ./scripts/run-test.sh localdns $qps 5
-  python3 scripts/aggregate_results.py $qps localdns
+  ./scripts/run-test.sh localdns $qps 5 10
+  python3 scripts/aggregate_results.py $qps localdns 10
   sleep 30
 done
 ```
@@ -315,6 +319,7 @@ aks-localdns-test/
 │   ├── dnsperf-job-node5.yaml      # dnsperf Job (250 Pod, 5노드용)
 │   └── dnsperf-job-node10.yaml     # dnsperf Job (500 Pod, 10노드용)
 ├── scripts/
+│   ├── run-all.sh                  # 전체 실험 자동화 스크립트
 │   ├── run-test.sh                 # 반복 실행 스크립트
 │   ├── aggregate_results.py        # 결과 집계 (Python)
 │   ├── collect_summary.py          # 전체 summary 통합 (Python)
