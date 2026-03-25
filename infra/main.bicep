@@ -13,7 +13,7 @@ param clusterName string = 'aks-localdns-test'
 param kubernetesVersion string = '1.33.7'
 
 @description('System node pool VM size')
-param systemNodeVmSize string = 'Standard_D4as_v6'
+param systemNodeVmSize string = 'Standard_D16as_v6'
 
 @description('System node pool count')
 param systemNodeCount int = 2
