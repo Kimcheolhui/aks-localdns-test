@@ -1,1502 +1,1502 @@
 [
   {
-    "pod": "dnsperf-baseline-q160-run1-22zd9",
+    "pod": "dnsperf-baseline-q160-run1-25vtd",
     "queries": 9600,
-    "avg_ms": 0.503,
+    "avg_ms": 0.45,
+    "qps": 159.999952
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-27qw9",
+    "queries": 9600,
+    "avg_ms": 0.522,
+    "qps": 159.999947
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-2b8qf",
+    "queries": 9600,
+    "avg_ms": 0.451,
+    "qps": 159.999781
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-2hp5l",
+    "queries": 9600,
+    "avg_ms": 0.29100000000000004,
     "qps": 159.999955
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-24m54",
+    "pod": "dnsperf-baseline-q160-run1-2msxb",
     "queries": 9600,
-    "avg_ms": 0.674,
-    "qps": 159.999957
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-2dspd",
-    "queries": 9600,
-    "avg_ms": 0.526,
-    "qps": 159.999947
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-2z7nh",
-    "queries": 9600,
-    "avg_ms": 0.494,
+    "avg_ms": 0.443,
     "qps": 159.999952
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-45ccg",
+    "pod": "dnsperf-baseline-q160-run1-2q79r",
     "queries": 9600,
-    "avg_ms": 0.48500000000000004,
-    "qps": 159.999912
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-477h8",
-    "queries": 9600,
-    "avg_ms": 0.49,
-    "qps": 159.999957
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-485hl",
-    "queries": 9600,
-    "avg_ms": 0.627,
-    "qps": 159.999891
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-4g2hv",
-    "queries": 9600,
-    "avg_ms": 0.55,
-    "qps": 159.999933
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-4qt5f",
-    "queries": 9600,
-    "avg_ms": 0.623,
-    "qps": 159.999947
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-4qtdc",
-    "queries": 9600,
-    "avg_ms": 0.546,
-    "qps": 159.999957
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-4tn94",
-    "queries": 9600,
-    "avg_ms": 0.533,
+    "avg_ms": 0.45399999999999996,
     "qps": 159.999952
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-4zrdx",
+    "pod": "dnsperf-baseline-q160-run1-2w8zw",
     "queries": 9600,
-    "avg_ms": 0.521,
-    "qps": 159.999949
+    "avg_ms": 0.53,
+    "qps": 159.986409
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-58fvw",
+    "pod": "dnsperf-baseline-q160-run1-2wkhw",
     "queries": 9600,
-    "avg_ms": 0.888,
-    "qps": 159.997168
+    "avg_ms": 0.873,
+    "qps": 159.999931
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-5bkk2",
+    "pod": "dnsperf-baseline-q160-run1-42fvq",
     "queries": 9600,
-    "avg_ms": 0.408,
-    "qps": 159.999952
+    "avg_ms": 0.384,
+    "qps": 159.999739
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-5crhg",
+    "pod": "dnsperf-baseline-q160-run1-48d6b",
     "queries": 9600,
-    "avg_ms": 0.23,
-    "qps": 159.999944
+    "avg_ms": 0.624,
+    "qps": 159.999955
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-5kvfl",
+    "pod": "dnsperf-baseline-q160-run1-4brz6",
     "queries": 9600,
-    "avg_ms": 0.721,
-    "qps": 159.999957
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-5shrd",
-    "queries": 9596,
-    "avg_ms": 0.6589999999999999,
-    "qps": 159.930188
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-5xsxz",
-    "queries": 9590,
-    "avg_ms": 0.34900000000000003,
-    "qps": 159.82384
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-5xwth",
-    "queries": 9600,
-    "avg_ms": 0.301,
-    "qps": 159.999947
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-64clf",
-    "queries": 9600,
-    "avg_ms": 0.46,
-    "qps": 159.999837
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-6d4pq",
-    "queries": 9600,
-    "avg_ms": 0.517,
-    "qps": 159.999947
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-6ftp6",
-    "queries": 9600,
-    "avg_ms": 0.40900000000000003,
+    "avg_ms": 0.331,
     "qps": 159.999939
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-6kds8",
+    "pod": "dnsperf-baseline-q160-run1-4g4w5",
     "queries": 9600,
-    "avg_ms": 0.5810000000000001,
-    "qps": 159.996901
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-6srrf",
-    "queries": 9598,
-    "avg_ms": 0.592,
-    "qps": 159.955539
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-6vlqx",
-    "queries": 9600,
-    "avg_ms": 0.675,
-    "qps": 159.999952
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-6zhcd",
-    "queries": 9600,
-    "avg_ms": 0.669,
-    "qps": 159.999952
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-77hgd",
-    "queries": 9600,
-    "avg_ms": 0.211,
-    "qps": 159.997717
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-78gw6",
-    "queries": 9600,
-    "avg_ms": 0.40099999999999997,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-7cm2g",
-    "queries": 9600,
-    "avg_ms": 0.368,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-7dkcv",
-    "queries": 9600,
-    "avg_ms": 0.192,
-    "qps": 159.999944
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-7hsrt",
-    "queries": 9600,
-    "avg_ms": 0.509,
-    "qps": 159.999952
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-7jljl",
-    "queries": 9600,
-    "avg_ms": 0.607,
+    "avg_ms": 0.579,
     "qps": 159.999955
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-7mmd7",
+    "pod": "dnsperf-baseline-q160-run1-4kzjc",
     "queries": 9600,
-    "avg_ms": 0.406,
-    "qps": 159.999949
+    "avg_ms": 0.842,
+    "qps": 159.999955
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-7p6tk",
-    "queries": 9600,
-    "avg_ms": 0.605,
-    "qps": 159.999952
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-7pp6g",
-    "queries": 9600,
-    "avg_ms": 0.24000000000000002,
-    "qps": 159.999933
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-82qjk",
-    "queries": 9600,
-    "avg_ms": 0.652,
-    "qps": 159.999952
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-84blb",
-    "queries": 9600,
-    "avg_ms": 0.606,
-    "qps": 159.999904
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-86pk7",
-    "queries": 9600,
-    "avg_ms": 0.225,
-    "qps": 159.999952
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-87xmq",
+    "pod": "dnsperf-baseline-q160-run1-4n729",
     "queries": 9600,
     "avg_ms": 0.457,
-    "qps": 159.999952
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-8bsst",
-    "queries": 9600,
-    "avg_ms": 0.16699999999999998,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-8f857",
-    "queries": 9600,
-    "avg_ms": 0.472,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-8m2vx",
-    "queries": 9600,
-    "avg_ms": 0.628,
-    "qps": 159.999955
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-8w6rz",
-    "queries": 9600,
-    "avg_ms": 0.583,
-    "qps": 159.999912
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-8xtkp",
-    "queries": 9600,
-    "avg_ms": 0.503,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-8zxlt",
-    "queries": 9589,
-    "avg_ms": 0.27,
-    "qps": 159.802825
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-94djr",
-    "queries": 9600,
-    "avg_ms": 0.593,
-    "qps": 159.999936
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-97fj4",
-    "queries": 9600,
-    "avg_ms": 0.639,
     "qps": 159.99996
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-9978p",
+    "pod": "dnsperf-baseline-q160-run1-4qqn5",
     "queries": 9600,
-    "avg_ms": 0.7020000000000001,
+    "avg_ms": 0.23800000000000002,
     "qps": 159.999952
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-99q4b",
+    "pod": "dnsperf-baseline-q160-run1-4t646",
+    "queries": 9600,
+    "avg_ms": 0.496,
+    "qps": 159.999952
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-52xk2",
+    "queries": 9600,
+    "avg_ms": 0.262,
+    "qps": 159.997461
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-54dd8",
+    "queries": 9600,
+    "avg_ms": 0.444,
+    "qps": 159.999952
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-5fjrc",
+    "queries": 9600,
+    "avg_ms": 0.242,
+    "qps": 159.999933
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-5gwzk",
+    "queries": 9600,
+    "avg_ms": 0.397,
+    "qps": 159.999947
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-5k7tl",
+    "queries": 9600,
+    "avg_ms": 1.1039999999999999,
+    "qps": 159.999952
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-5lfmj",
+    "queries": 9600,
+    "avg_ms": 0.372,
+    "qps": 159.999811
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-5rwjn",
+    "queries": 9588,
+    "avg_ms": 0.631,
+    "qps": 159.795555
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-5sj9t",
+    "queries": 9600,
+    "avg_ms": 0.28200000000000003,
+    "qps": 159.999952
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-5zwnq",
+    "queries": 9600,
+    "avg_ms": 0.432,
+    "qps": 159.999952
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-64p2c",
+    "queries": 9600,
+    "avg_ms": 0.386,
+    "qps": 159.999952
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-64zqh",
+    "queries": 9600,
+    "avg_ms": 0.748,
+    "qps": 159.999917
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-65wxw",
+    "queries": 9600,
+    "avg_ms": 0.321,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-66xpz",
+    "queries": 9600,
+    "avg_ms": 0.23900000000000002,
+    "qps": 159.999941
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-6brbw",
+    "queries": 9600,
+    "avg_ms": 0.699,
+    "qps": 159.999923
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-6gndk",
+    "queries": 9600,
+    "avg_ms": 0.5720000000000001,
+    "qps": 159.999947
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-6kh7j",
+    "queries": 9600,
+    "avg_ms": 0.5379999999999999,
+    "qps": 159.999944
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-6rfml",
+    "queries": 9600,
+    "avg_ms": 0.339,
+    "qps": 159.999957
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-6sxdl",
+    "queries": 9600,
+    "avg_ms": 0.376,
+    "qps": 159.999955
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-6sxrt",
+    "queries": 9600,
+    "avg_ms": 0.47100000000000003,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-6t8tx",
+    "queries": 9600,
+    "avg_ms": 0.893,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-6tk4d",
+    "queries": 9600,
+    "avg_ms": 0.9380000000000001,
+    "qps": 159.999944
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-6txp8",
+    "queries": 9600,
+    "avg_ms": 0.584,
+    "qps": 159.999955
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-6vtvc",
+    "queries": 9600,
+    "avg_ms": 0.316,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-7f49d",
+    "queries": 9600,
+    "avg_ms": 0.373,
+    "qps": 159.999576
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-7glld",
+    "queries": 9600,
+    "avg_ms": 0.23,
+    "qps": 159.999941
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-7hvs9",
+    "queries": 9600,
+    "avg_ms": 0.378,
+    "qps": 159.999936
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-7k5gm",
+    "queries": 9600,
+    "avg_ms": 0.539,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-7s2n9",
+    "queries": 9600,
+    "avg_ms": 0.737,
+    "qps": 159.999917
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-87qq2",
+    "queries": 9600,
+    "avg_ms": 0.8490000000000001,
+    "qps": 159.999952
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-8c7xn",
+    "queries": 9600,
+    "avg_ms": 0.578,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-8h5xb",
+    "queries": 9600,
+    "avg_ms": 0.48899999999999993,
+    "qps": 159.999955
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-8jmpg",
+    "queries": 9600,
+    "avg_ms": 0.545,
+    "qps": 159.999947
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-8qtml",
+    "queries": 9600,
+    "avg_ms": 0.43600000000000005,
+    "qps": 159.999923
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-8rzct",
+    "queries": 9600,
+    "avg_ms": 0.40700000000000003,
+    "qps": 159.999936
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-8xjbd",
+    "queries": 9600,
+    "avg_ms": 1.003,
+    "qps": 159.999944
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-8xr2l",
+    "queries": 9600,
+    "avg_ms": 1.256,
+    "qps": 159.99992
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-8zgxf",
+    "queries": 9600,
+    "avg_ms": 0.474,
+    "qps": 159.999963
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-929wr",
+    "queries": 9600,
+    "avg_ms": 0.458,
+    "qps": 159.999955
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-95rvg",
+    "queries": 9600,
+    "avg_ms": 0.363,
+    "qps": 159.999941
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-9gsdz",
+    "queries": 9600,
+    "avg_ms": 0.594,
+    "qps": 159.999941
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-9jsd2",
+    "queries": 9600,
+    "avg_ms": 0.261,
+    "qps": 159.999944
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-9pqzz",
+    "queries": 9600,
+    "avg_ms": 0.533,
+    "qps": 159.999944
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-9vzdz",
+    "queries": 9600,
+    "avg_ms": 0.612,
+    "qps": 159.999944
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-9wkvg",
+    "queries": 9600,
+    "avg_ms": 0.549,
+    "qps": 159.999947
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-b2t6r",
+    "queries": 9600,
+    "avg_ms": 0.587,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-b5x8z",
+    "queries": 9600,
+    "avg_ms": 0.477,
+    "qps": 159.999955
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-bdf7j",
+    "queries": 9600,
+    "avg_ms": 0.47800000000000004,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-bjlp6",
     "queries": 9600,
     "avg_ms": 0.46900000000000003,
     "qps": 159.999941
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-9bc9k",
+    "pod": "dnsperf-baseline-q160-run1-bjnrp",
     "queries": 9600,
-    "avg_ms": 0.211,
-    "qps": 159.999955
+    "avg_ms": 0.527,
+    "qps": 159.999952
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-9bmvp",
-    "queries": 9595,
-    "avg_ms": 0.635,
-    "qps": 159.910942
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-9dfw4",
-    "queries": 9596,
-    "avg_ms": 0.684,
-    "qps": 159.933267
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-9f9jc",
+    "pod": "dnsperf-baseline-q160-run1-brzn9",
     "queries": 9600,
-    "avg_ms": 0.636,
-    "qps": 159.999941
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-9fv5l",
-    "queries": 9600,
-    "avg_ms": 0.23299999999999998,
+    "avg_ms": 0.73,
     "qps": 159.999931
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-9hbgd",
+    "pod": "dnsperf-baseline-q160-run1-bw7z7",
     "queries": 9600,
-    "avg_ms": 0.419,
+    "avg_ms": 0.8809999999999999,
+    "qps": 159.999797
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-bxdjb",
+    "queries": 9600,
+    "avg_ms": 0.229,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-c7cf9",
+    "queries": 9600,
+    "avg_ms": 0.756,
     "qps": 159.999952
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-9mr9s",
+    "pod": "dnsperf-baseline-q160-run1-c99jx",
     "queries": 9600,
-    "avg_ms": 0.597,
-    "qps": 159.999947
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-9phgc",
-    "queries": 9600,
-    "avg_ms": 0.40499999999999997,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-9t5hj",
-    "queries": 9600,
-    "avg_ms": 0.651,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-9v6kk",
-    "queries": 9600,
-    "avg_ms": 0.231,
-    "qps": 159.999944
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-bc57b",
-    "queries": 9600,
-    "avg_ms": 0.21800000000000003,
-    "qps": 159.999944
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-bcgd2",
-    "queries": 9600,
-    "avg_ms": 0.462,
-    "qps": 159.999936
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-bh96c",
-    "queries": 9600,
-    "avg_ms": 0.5569999999999999,
-    "qps": 159.999915
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-bjmtk",
-    "queries": 9600,
-    "avg_ms": 0.717,
-    "qps": 159.999947
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-bkmnl",
-    "queries": 9600,
-    "avg_ms": 0.15,
-    "qps": 159.999944
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-br5b9",
-    "queries": 9600,
-    "avg_ms": 0.395,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-bsxrt",
-    "queries": 9600,
-    "avg_ms": 0.7060000000000001,
-    "qps": 159.999941
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-btxvj",
-    "queries": 9600,
-    "avg_ms": 0.6849999999999999,
-    "qps": 159.999944
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-bzvg5",
-    "queries": 9600,
-    "avg_ms": 0.39,
-    "qps": 159.999947
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-c5m5m",
-    "queries": 9600,
-    "avg_ms": 0.47100000000000003,
-    "qps": 159.999952
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-c8765",
-    "queries": 9600,
-    "avg_ms": 0.38,
-    "qps": 159.999944
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-cg9ml",
-    "queries": 9600,
-    "avg_ms": 0.678,
-    "qps": 159.999872
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-cgtfs",
-    "queries": 9600,
-    "avg_ms": 0.211,
-    "qps": 159.999936
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-cpw7p",
-    "queries": 9600,
-    "avg_ms": 0.40499999999999997,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-cqjvb",
-    "queries": 9600,
-    "avg_ms": 0.506,
-    "qps": 159.999947
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-cssm5",
-    "queries": 9600,
-    "avg_ms": 0.332,
-    "qps": 159.999824
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-ctx4m",
-    "queries": 9600,
-    "avg_ms": 0.38,
+    "avg_ms": 0.366,
     "qps": 159.999955
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-cw5dx",
-    "queries": 9600,
-    "avg_ms": 0.45899999999999996,
-    "qps": 159.99996
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-cz5z4",
-    "queries": 9600,
-    "avg_ms": 0.5559999999999999,
-    "qps": 159.999952
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-d27pk",
-    "queries": 9600,
-    "avg_ms": 0.364,
-    "qps": 159.999936
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-d2865",
+    "pod": "dnsperf-baseline-q160-run1-cbms8",
     "queries": 9600,
     "avg_ms": 0.525,
     "qps": 159.999952
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-d474k",
+    "pod": "dnsperf-baseline-q160-run1-cccsq",
     "queries": 9600,
-    "avg_ms": 0.188,
-    "qps": 159.999944
+    "avg_ms": 0.448,
+    "qps": 159.999952
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-dd5x6",
+    "pod": "dnsperf-baseline-q160-run1-cgl5j",
     "queries": 9600,
-    "avg_ms": 0.425,
-    "qps": 159.999947
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-dg865",
-    "queries": 9600,
-    "avg_ms": 0.368,
-    "qps": 159.999955
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-dhjsq",
-    "queries": 9600,
-    "avg_ms": 0.6130000000000001,
+    "avg_ms": 0.661,
     "qps": 159.999949
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-djn8p",
+    "pod": "dnsperf-baseline-q160-run1-cj49x",
     "queries": 9600,
-    "avg_ms": 0.5509999999999999,
-    "qps": 159.999936
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-dm42p",
-    "queries": 9600,
-    "avg_ms": 0.36000000000000004,
-    "qps": 159.999941
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-dpp5k",
-    "queries": 9600,
-    "avg_ms": 0.35,
+    "avg_ms": 0.26899999999999996,
     "qps": 159.999949
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-dvh69",
+    "pod": "dnsperf-baseline-q160-run1-cjv8k",
     "queries": 9600,
-    "avg_ms": 0.414,
-    "qps": 159.999944
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-dw7rm",
-    "queries": 9600,
-    "avg_ms": 0.5599999999999999,
-    "qps": 159.995392
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-dwrzn",
-    "queries": 9600,
-    "avg_ms": 0.243,
-    "qps": 159.999944
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-f2266",
-    "queries": 9600,
-    "avg_ms": 0.5770000000000001,
-    "qps": 159.999947
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-f9s6p",
-    "queries": 9600,
-    "avg_ms": 0.41100000000000003,
-    "qps": 159.999952
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-fcpzc",
-    "queries": 9600,
-    "avg_ms": 0.475,
-    "qps": 159.999952
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-fd5q5",
-    "queries": 9600,
-    "avg_ms": 0.46599999999999997,
-    "qps": 159.999952
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-fd85r",
-    "queries": 9600,
-    "avg_ms": 0.18000000000000002,
-    "qps": 159.999944
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-fmkv7",
-    "queries": 9597,
-    "avg_ms": 0.6589999999999999,
-    "qps": 159.944637
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-fpjt6",
-    "queries": 9600,
-    "avg_ms": 0.618,
-    "qps": 159.999944
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-fts62",
-    "queries": 9600,
-    "avg_ms": 0.554,
-    "qps": 159.999952
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-fxb69",
-    "queries": 9600,
-    "avg_ms": 0.40299999999999997,
+    "avg_ms": 0.27799999999999997,
     "qps": 159.999955
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-g7sjf",
+    "pod": "dnsperf-baseline-q160-run1-cll8n",
     "queries": 9600,
-    "avg_ms": 0.268,
+    "avg_ms": 0.45399999999999996,
+    "qps": 159.999952
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-clzrk",
+    "queries": 9600,
+    "avg_ms": 0.584,
+    "qps": 159.988204
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-cp7br",
+    "queries": 9600,
+    "avg_ms": 0.651,
+    "qps": 159.999955
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-cpnlm",
+    "queries": 9591,
+    "avg_ms": 0.598,
+    "qps": 159.841435
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-csxh4",
+    "queries": 9600,
+    "avg_ms": 0.315,
     "qps": 159.999939
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-g98cn",
+    "pod": "dnsperf-baseline-q160-run1-ct5qz",
     "queries": 9600,
-    "avg_ms": 0.437,
-    "qps": 159.999955
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-gfj8g",
-    "queries": 9600,
-    "avg_ms": 0.5720000000000001,
-    "qps": 159.999957
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-gmdcm",
-    "queries": 9600,
-    "avg_ms": 0.555,
-    "qps": 159.999925
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-gq7rx",
-    "queries": 9600,
-    "avg_ms": 0.40299999999999997,
-    "qps": 159.999957
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-gzr9h",
-    "queries": 9600,
-    "avg_ms": 0.23,
+    "avg_ms": 0.54,
     "qps": 159.999949
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-h2479",
+    "pod": "dnsperf-baseline-q160-run1-d4p87",
     "queries": 9600,
-    "avg_ms": 0.395,
-    "qps": 159.999957
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-h2n5r",
-    "queries": 9600,
-    "avg_ms": 0.633,
-    "qps": 159.999944
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-h4bqq",
-    "queries": 9598,
-    "avg_ms": 0.40099999999999997,
-    "qps": 159.962974
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-h54tt",
-    "queries": 9600,
-    "avg_ms": 0.709,
-    "qps": 159.999944
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-h9n7q",
-    "queries": 9600,
-    "avg_ms": 0.44,
-    "qps": 159.999955
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-hckxc",
-    "queries": 9600,
-    "avg_ms": 0.391,
-    "qps": 159.999957
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-hrss7",
-    "queries": 9600,
-    "avg_ms": 0.631,
-    "qps": 159.999883
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-hzkdd",
-    "queries": 9600,
-    "avg_ms": 0.78,
+    "avg_ms": 0.5559999999999999,
     "qps": 159.999952
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-j24gk",
+    "pod": "dnsperf-baseline-q160-run1-d5rz2",
     "queries": 9600,
-    "avg_ms": 0.41100000000000003,
-    "qps": 159.999939
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-j4kbd",
-    "queries": 9600,
-    "avg_ms": 0.35,
-    "qps": 159.999936
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-j6z7n",
-    "queries": 9600,
-    "avg_ms": 0.44,
-    "qps": 159.986526
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-j95kf",
-    "queries": 9600,
-    "avg_ms": 0.5,
-    "qps": 159.999931
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-j9h5c",
-    "queries": 9600,
-    "avg_ms": 0.384,
-    "qps": 159.999944
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-jjm2m",
-    "queries": 9600,
-    "avg_ms": 0.242,
-    "qps": 159.999955
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-jks8f",
-    "queries": 9600,
-    "avg_ms": 0.69,
-    "qps": 159.999947
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-jlrp7",
-    "queries": 9600,
-    "avg_ms": 0.40499999999999997,
-    "qps": 159.999928
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-js62n",
-    "queries": 9600,
-    "avg_ms": 0.156,
-    "qps": 159.999931
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-jtqv2",
-    "queries": 9600,
-    "avg_ms": 0.742,
+    "avg_ms": 0.45199999999999996,
     "qps": 159.999949
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-jwb9f",
-    "queries": 9600,
-    "avg_ms": 0.382,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-jwslt",
-    "queries": 9600,
-    "avg_ms": 0.27099999999999996,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-jz9xr",
-    "queries": 9600,
-    "avg_ms": 0.46099999999999997,
-    "qps": 159.999955
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-k6cnl",
-    "queries": 9600,
-    "avg_ms": 0.47100000000000003,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-k7rqq",
-    "queries": 9600,
-    "avg_ms": 0.43600000000000005,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-k8788",
-    "queries": 9600,
-    "avg_ms": 0.524,
-    "qps": 159.999941
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-k88fl",
-    "queries": 9600,
-    "avg_ms": 0.569,
-    "qps": 159.997264
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-k8llp",
-    "queries": 9600,
-    "avg_ms": 0.36000000000000004,
-    "qps": 159.999955
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-k9x4n",
-    "queries": 9600,
-    "avg_ms": 0.625,
-    "qps": 159.999653
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-kbqxf",
-    "queries": 9600,
-    "avg_ms": 0.58,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-kdbbh",
+    "pod": "dnsperf-baseline-q160-run1-d6ddz",
     "queries": 9600,
     "avg_ms": 0.208,
-    "qps": 159.999941
+    "qps": 159.999944
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-khz96",
+    "pod": "dnsperf-baseline-q160-run1-db6rb",
     "queries": 9600,
-    "avg_ms": 0.549,
+    "avg_ms": 0.456,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-dm689",
+    "queries": 9600,
+    "avg_ms": 0.508,
+    "qps": 159.999957
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-drf6g",
+    "queries": 9600,
+    "avg_ms": 0.347,
+    "qps": 159.999944
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-dsvzd",
+    "queries": 9600,
+    "avg_ms": 0.625,
+    "qps": 159.999952
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-dwksl",
+    "queries": 9600,
+    "avg_ms": 0.6890000000000001,
+    "qps": 159.999957
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-dzxx4",
+    "queries": 9600,
+    "avg_ms": 0.9349999999999999,
+    "qps": 159.99992
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-f8zsg",
+    "queries": 9600,
+    "avg_ms": 0.5770000000000001,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-fb24n",
+    "queries": 9600,
+    "avg_ms": 0.6890000000000001,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-fctgx",
+    "queries": 9596,
+    "avg_ms": 0.834,
+    "qps": 159.929404
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-fd2xz",
+    "queries": 9600,
+    "avg_ms": 0.297,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-fh76v",
+    "queries": 9600,
+    "avg_ms": 0.844,
+    "qps": 159.999947
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-fn2bt",
+    "queries": 9600,
+    "avg_ms": 0.64,
+    "qps": 159.999939
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-fqpls",
+    "queries": 9600,
+    "avg_ms": 0.7919999999999999,
+    "qps": 159.999944
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-frnml",
+    "queries": 9600,
+    "avg_ms": 0.512,
+    "qps": 159.999947
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-frnsw",
+    "queries": 9600,
+    "avg_ms": 0.825,
+    "qps": 159.999944
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-ft65p",
+    "queries": 9600,
+    "avg_ms": 0.378,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-ft7dg",
+    "queries": 9600,
+    "avg_ms": 0.536,
+    "qps": 159.999952
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-fxcjm",
+    "queries": 9600,
+    "avg_ms": 0.326,
+    "qps": 159.999952
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-g4m2d",
+    "queries": 9600,
+    "avg_ms": 0.262,
+    "qps": 159.999952
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-g7gzz",
+    "queries": 9600,
+    "avg_ms": 0.554,
+    "qps": 159.999936
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-gb54l",
+    "queries": 9600,
+    "avg_ms": 0.47600000000000003,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-gcqxw",
+    "queries": 9600,
+    "avg_ms": 0.5730000000000001,
+    "qps": 159.999952
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-gq4fp",
+    "queries": 9600,
+    "avg_ms": 0.391,
+    "qps": 159.999955
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-gqxpr",
+    "queries": 9600,
+    "avg_ms": 0.301,
+    "qps": 159.999944
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-gv6fh",
+    "queries": 9600,
+    "avg_ms": 0.45199999999999996,
+    "qps": 159.999931
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-gwhrz",
+    "queries": 9600,
+    "avg_ms": 0.241,
+    "qps": 159.999947
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-h89qb",
+    "queries": 9600,
+    "avg_ms": 0.279,
+    "qps": 159.999952
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-hb6vc",
+    "queries": 9600,
+    "avg_ms": 1.021,
+    "qps": 159.999648
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-hqkhh",
+    "queries": 9600,
+    "avg_ms": 0.231,
+    "qps": 159.999957
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-hs2sx",
+    "queries": 9600,
+    "avg_ms": 0.791,
+    "qps": 159.999904
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-hsdgd",
+    "queries": 9600,
+    "avg_ms": 0.379,
+    "qps": 159.999952
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-hslgw",
+    "queries": 9600,
+    "avg_ms": 0.28200000000000003,
+    "qps": 159.999944
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-hvzvb",
+    "queries": 9600,
+    "avg_ms": 0.32899999999999996,
+    "qps": 159.999952
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-hz5bp",
+    "queries": 9600,
+    "avg_ms": 0.363,
+    "qps": 159.999944
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-j2kxt",
+    "queries": 9600,
+    "avg_ms": 0.7110000000000001,
+    "qps": 159.99992
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-j4292",
+    "queries": 9600,
+    "avg_ms": 0.673,
     "qps": 159.999933
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-kjkt8",
+    "pod": "dnsperf-baseline-q160-run1-j6chn",
     "queries": 9600,
-    "avg_ms": 0.17,
-    "qps": 159.999949
+    "avg_ms": 0.6579999999999999,
+    "qps": 159.999939
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-km2ch",
-    "queries": 9600,
-    "avg_ms": 0.546,
-    "qps": 159.999955
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-knplm",
-    "queries": 9600,
-    "avg_ms": 0.666,
-    "qps": 159.999947
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-ksxlm",
-    "queries": 9600,
-    "avg_ms": 0.202,
-    "qps": 159.999944
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-kt8rf",
-    "queries": 9600,
-    "avg_ms": 0.4,
-    "qps": 159.999955
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-ktxpv",
-    "queries": 9600,
-    "avg_ms": 0.68,
-    "qps": 159.999955
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-kxghj",
-    "queries": 9600,
-    "avg_ms": 0.38699999999999996,
-    "qps": 159.999904
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-l2fw9",
-    "queries": 9600,
-    "avg_ms": 0.484,
-    "qps": 159.999952
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-l4fk9",
-    "queries": 9600,
-    "avg_ms": 0.521,
-    "qps": 159.999955
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-l8kpc",
-    "queries": 9600,
-    "avg_ms": 0.177,
-    "qps": 159.999944
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-lbc4l",
-    "queries": 9600,
-    "avg_ms": 0.7110000000000001,
-    "qps": 159.999941
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-lxgkg",
-    "queries": 9600,
-    "avg_ms": 0.22599999999999998,
-    "qps": 159.999941
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-m4svl",
-    "queries": 9600,
-    "avg_ms": 0.6970000000000001,
-    "qps": 159.999931
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-m5t8p",
-    "queries": 9600,
-    "avg_ms": 0.641,
-    "qps": 159.993158
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-mj2h4",
-    "queries": 9600,
-    "avg_ms": 0.657,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-mkfph",
-    "queries": 9600,
-    "avg_ms": 0.431,
-    "qps": 159.999928
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-mqz7l",
-    "queries": 9600,
-    "avg_ms": 0.438,
-    "qps": 159.999952
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-mrxl2",
-    "queries": 9600,
-    "avg_ms": 0.24000000000000002,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-mvd6p",
-    "queries": 9600,
-    "avg_ms": 0.424,
-    "qps": 159.999944
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-n8zkd",
-    "queries": 9600,
-    "avg_ms": 0.508,
-    "qps": 159.999952
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-ncw5k",
+    "pod": "dnsperf-baseline-q160-run1-j95cd",
     "queries": 9600,
     "avg_ms": 0.248,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-ndcnj",
-    "queries": 9600,
-    "avg_ms": 0.707,
-    "qps": 159.999952
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-nfgxr",
-    "queries": 9600,
-    "avg_ms": 0.222,
-    "qps": 159.999939
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-njjt4",
-    "queries": 9600,
-    "avg_ms": 0.44,
-    "qps": 159.999867
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-nk5k2",
-    "queries": 9600,
-    "avg_ms": 0.46299999999999997,
-    "qps": 159.999952
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-nmmtw",
-    "queries": 9600,
-    "avg_ms": 0.5599999999999999,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-nrxng",
-    "queries": 9600,
-    "avg_ms": 0.477,
-    "qps": 159.999925
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-ntpqk",
-    "queries": 9600,
-    "avg_ms": 0.216,
-    "qps": 159.999939
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-nvvqb",
-    "queries": 9600,
-    "avg_ms": 0.45199999999999996,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-pb6xr",
-    "queries": 9600,
-    "avg_ms": 0.456,
-    "qps": 159.999941
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-pbw56",
-    "queries": 9598,
-    "avg_ms": 0.415,
-    "qps": 159.950509
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-pc2km",
-    "queries": 9600,
-    "avg_ms": 0.5630000000000001,
     "qps": 159.999955
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-pnw6q",
+    "pod": "dnsperf-baseline-q160-run1-jm2gq",
     "queries": 9600,
-    "avg_ms": 0.415,
-    "qps": 159.999955
+    "avg_ms": 0.545,
+    "qps": 159.999952
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-ppbqf",
+    "pod": "dnsperf-baseline-q160-run1-jpgr8",
     "queries": 9600,
-    "avg_ms": 0.477,
-    "qps": 159.999931
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-pr266",
-    "queries": 9600,
-    "avg_ms": 0.201,
+    "avg_ms": 0.5680000000000001,
     "qps": 159.999944
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-pstb4",
+    "pod": "dnsperf-baseline-q160-run1-jq479",
     "queries": 9600,
-    "avg_ms": 0.39599999999999996,
-    "qps": 159.999952
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-ptw9x",
-    "queries": 9600,
-    "avg_ms": 0.527,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-pv2dr",
-    "queries": 9600,
-    "avg_ms": 0.605,
-    "qps": 159.999939
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-pzmgf",
-    "queries": 9600,
-    "avg_ms": 0.22699999999999998,
-    "qps": 159.999947
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-q52jx",
-    "queries": 9600,
-    "avg_ms": 0.618,
-    "qps": 159.999955
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-q5mmj",
-    "queries": 9600,
-    "avg_ms": 0.36200000000000004,
-    "qps": 159.999957
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-q7ppr",
-    "queries": 9600,
-    "avg_ms": 0.398,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-q97vt",
-    "queries": 9600,
-    "avg_ms": 0.415,
-    "qps": 159.999957
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-q9dcq",
-    "queries": 9600,
-    "avg_ms": 0.448,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-qjn5n",
-    "queries": 9600,
-    "avg_ms": 0.66,
-    "qps": 159.999952
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-qnmh7",
-    "queries": 9600,
-    "avg_ms": 0.45399999999999996,
-    "qps": 159.999955
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-qvkn9",
-    "queries": 9600,
-    "avg_ms": 0.443,
-    "qps": 159.999955
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-r47jd",
-    "queries": 9600,
-    "avg_ms": 0.527,
-    "qps": 159.999955
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-r5g7m",
-    "queries": 9600,
-    "avg_ms": 0.216,
-    "qps": 159.999955
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-r6566",
-    "queries": 9596,
-    "avg_ms": 0.259,
-    "qps": 159.923549
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-r9d46",
-    "queries": 9600,
-    "avg_ms": 0.46799999999999997,
+    "avg_ms": 0.539,
     "qps": 159.999941
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-rm5vf",
+    "pod": "dnsperf-baseline-q160-run1-jrbkr",
     "queries": 9600,
-    "avg_ms": 0.24899999999999997,
+    "avg_ms": 0.544,
     "qps": 159.999952
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-rmtct",
+    "pod": "dnsperf-baseline-q160-run1-jvtts",
     "queries": 9600,
-    "avg_ms": 0.419,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-rpn2r",
-    "queries": 9600,
-    "avg_ms": 0.189,
-    "qps": 159.999928
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-rw6s6",
-    "queries": 9600,
-    "avg_ms": 0.594,
-    "qps": 159.999952
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-s8tnc",
-    "queries": 9600,
-    "avg_ms": 0.6,
-    "qps": 159.999947
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-sfbbf",
-    "queries": 9600,
-    "avg_ms": 0.207,
-    "qps": 159.999955
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-sftm7",
-    "queries": 9600,
-    "avg_ms": 0.508,
-    "qps": 159.999936
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-smgfn",
-    "queries": 9600,
-    "avg_ms": 0.437,
-    "qps": 159.999947
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-sn4xc",
-    "queries": 9600,
-    "avg_ms": 0.372,
-    "qps": 159.999947
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-sp84g",
-    "queries": 9600,
-    "avg_ms": 0.506,
-    "qps": 159.999904
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-ssh7z",
-    "queries": 9600,
-    "avg_ms": 0.192,
-    "qps": 159.999931
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-szz6p",
-    "queries": 9600,
-    "avg_ms": 0.45199999999999996,
+    "avg_ms": 0.322,
     "qps": 159.99996
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-t2dns",
+    "pod": "dnsperf-baseline-q160-run1-jxn94",
     "queries": 9600,
-    "avg_ms": 0.398,
-    "qps": 159.999915
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-t62xl",
-    "queries": 9600,
-    "avg_ms": 0.354,
-    "qps": 159.999955
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-t8wnk",
-    "queries": 9600,
-    "avg_ms": 0.332,
-    "qps": 159.999947
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-tbx86",
-    "queries": 9600,
-    "avg_ms": 0.256,
-    "qps": 159.999944
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-tcrtq",
-    "queries": 9600,
-    "avg_ms": 0.45199999999999996,
-    "qps": 159.999933
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-tfw4s",
-    "queries": 9600,
-    "avg_ms": 0.40700000000000003,
-    "qps": 159.999955
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-thlk2",
-    "queries": 9592,
-    "avg_ms": 0.191,
-    "qps": 159.857408
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-tmhjx",
-    "queries": 9600,
-    "avg_ms": 0.536,
-    "qps": 159.999947
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-tn85m",
-    "queries": 9600,
-    "avg_ms": 0.19699999999999998,
+    "avg_ms": 0.506,
     "qps": 159.999949
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-tps9x",
+    "pod": "dnsperf-baseline-q160-run1-k6mvz",
     "queries": 9600,
-    "avg_ms": 0.609,
-    "qps": 159.999952
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-tqfg9",
-    "queries": 9600,
-    "avg_ms": 0.505,
-    "qps": 159.999952
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-tvkmp",
-    "queries": 9600,
-    "avg_ms": 0.7200000000000001,
+    "avg_ms": 0.621,
     "qps": 159.999939
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-twmf9",
+    "pod": "dnsperf-baseline-q160-run1-kg4d5",
     "queries": 9600,
-    "avg_ms": 0.425,
+    "avg_ms": 0.73,
+    "qps": 159.999944
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-kjblz",
+    "queries": 9600,
+    "avg_ms": 0.605,
     "qps": 159.999955
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-v2srr",
+    "pod": "dnsperf-baseline-q160-run1-kl262",
     "queries": 9600,
-    "avg_ms": 0.374,
-    "qps": 159.999909
+    "avg_ms": 0.755,
+    "qps": 159.997616
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-v586w",
+    "pod": "dnsperf-baseline-q160-run1-krt79",
+    "queries": 9600,
+    "avg_ms": 0.5429999999999999,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-ktmmd",
+    "queries": 9600,
+    "avg_ms": 0.5680000000000001,
+    "qps": 159.999944
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-l2wls",
+    "queries": 9600,
+    "avg_ms": 1.014,
+    "qps": 159.999947
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-l59bt",
+    "queries": 9600,
+    "avg_ms": 0.417,
+    "qps": 159.999944
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-l6rfl",
+    "queries": 9600,
+    "avg_ms": 0.537,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-lfjm7",
+    "queries": 9600,
+    "avg_ms": 0.515,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-lkd8r",
     "queries": 9600,
     "avg_ms": 0.34099999999999997,
     "qps": 159.999955
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-vblxp",
-    "queries": 9592,
-    "avg_ms": 0.224,
-    "qps": 159.856865
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-vdtlf",
+    "pod": "dnsperf-baseline-q160-run1-ltv6z",
     "queries": 9600,
-    "avg_ms": 0.358,
-    "qps": 159.999947
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-vg226",
-    "queries": 9600,
-    "avg_ms": 0.153,
-    "qps": 159.999941
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-vllnp",
-    "queries": 9600,
-    "avg_ms": 0.421,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-vnpj5",
-    "queries": 9600,
-    "avg_ms": 0.44499999999999995,
-    "qps": 159.99988
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-vw5fv",
-    "queries": 9600,
-    "avg_ms": 0.642,
+    "avg_ms": 0.347,
     "qps": 159.999933
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-vx4tt",
+    "pod": "dnsperf-baseline-q160-run1-lwfrv",
     "queries": 9600,
-    "avg_ms": 0.541,
-    "qps": 159.999947
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-vzf8z",
-    "queries": 9600,
-    "avg_ms": 0.48500000000000004,
-    "qps": 159.999883
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-w2m4s",
-    "queries": 9600,
-    "avg_ms": 0.212,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-w45nq",
-    "queries": 9600,
-    "avg_ms": 0.61,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-w78dw",
-    "queries": 9600,
-    "avg_ms": 1.034,
+    "avg_ms": 0.679,
     "qps": 159.999925
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-w7gfz",
+    "pod": "dnsperf-baseline-q160-run1-lxgpp",
     "queries": 9600,
-    "avg_ms": 0.342,
+    "avg_ms": 0.455,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-lzlkm",
+    "queries": 9600,
+    "avg_ms": 0.462,
+    "qps": 159.999784
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-m2vql",
+    "queries": 9600,
+    "avg_ms": 0.606,
+    "qps": 159.999928
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-m4bqr",
+    "queries": 9600,
+    "avg_ms": 0.7240000000000001,
+    "qps": 159.999944
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-m6hzs",
+    "queries": 9600,
+    "avg_ms": 0.38699999999999996,
+    "qps": 159.999944
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-m8xz8",
+    "queries": 9600,
+    "avg_ms": 0.40099999999999997,
     "qps": 159.999952
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-w8vz9",
+    "pod": "dnsperf-baseline-q160-run1-mbgqm",
+    "queries": 9492,
+    "avg_ms": 1.067,
+    "qps": 158.198916
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-mf5nn",
     "queries": 9600,
-    "avg_ms": 0.377,
-    "qps": 159.999925
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-wb6w6",
-    "queries": 9589,
-    "avg_ms": 0.414,
-    "qps": 159.807571
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-wf675",
-    "queries": 9600,
-    "avg_ms": 0.458,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-wjhcz",
-    "queries": 9584,
-    "avg_ms": 0.8009999999999999,
-    "qps": 159.73316
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-wlw27",
-    "queries": 9600,
-    "avg_ms": 0.236,
+    "avg_ms": 0.318,
     "qps": 159.999781
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-wm8zw",
+    "pod": "dnsperf-baseline-q160-run1-mht8c",
     "queries": 9600,
-    "avg_ms": 0.421,
-    "qps": 159.999949
+    "avg_ms": 0.451,
+    "qps": 159.999955
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-wt7nr",
+    "pod": "dnsperf-baseline-q160-run1-mlbn9",
     "queries": 9600,
-    "avg_ms": 0.5770000000000001,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-wzsqb",
-    "queries": 9600,
-    "avg_ms": 0.5379999999999999,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-x5ptp",
-    "queries": 9600,
-    "avg_ms": 0.38,
-    "qps": 159.999949
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-x66kg",
-    "queries": 9600,
-    "avg_ms": 0.683,
+    "avg_ms": 0.539,
     "qps": 159.999952
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-xfvgl",
+    "pod": "dnsperf-baseline-q160-run1-mmpp6",
     "queries": 9600,
-    "avg_ms": 0.55,
-    "qps": 159.999936
+    "avg_ms": 0.7,
+    "qps": 159.999952
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-xj27r",
+    "pod": "dnsperf-baseline-q160-run1-mwtb5",
     "queries": 9600,
-    "avg_ms": 0.467,
+    "avg_ms": 0.247,
     "qps": 159.999957
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-xlqnp",
+    "pod": "dnsperf-baseline-q160-run1-mx4qv",
+    "queries": 9600,
+    "avg_ms": 0.562,
+    "qps": 159.999933
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-mx4sv",
+    "queries": 9590,
+    "avg_ms": 0.483,
+    "qps": 159.832795
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-n2cz5",
+    "queries": 9600,
+    "avg_ms": 0.16,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-n5gcn",
+    "queries": 9600,
+    "avg_ms": 0.377,
+    "qps": 159.999952
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-n76zz",
+    "queries": 9600,
+    "avg_ms": 0.62,
+    "qps": 159.999931
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-ncnqf",
+    "queries": 9600,
+    "avg_ms": 0.6970000000000001,
+    "qps": 159.999829
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-nmd44",
+    "queries": 9600,
+    "avg_ms": 0.963,
+    "qps": 159.999957
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-p5fj5",
+    "queries": 9600,
+    "avg_ms": 0.378,
+    "qps": 159.999947
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-p86jn",
+    "queries": 9600,
+    "avg_ms": 0.5770000000000001,
+    "qps": 159.999829
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-pc6h5",
+    "queries": 9600,
+    "avg_ms": 0.255,
+    "qps": 159.999957
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-pc7sn",
+    "queries": 9600,
+    "avg_ms": 0.5469999999999999,
+    "qps": 159.999952
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-pj25c",
+    "queries": 9600,
+    "avg_ms": 0.7010000000000001,
+    "qps": 159.999944
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-pklm6",
+    "queries": 9600,
+    "avg_ms": 0.313,
+    "qps": 159.999941
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-pr2nt",
+    "queries": 9600,
+    "avg_ms": 0.248,
+    "qps": 159.999952
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-px64r",
+    "queries": 9600,
+    "avg_ms": 0.237,
+    "qps": 159.999957
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-q5njw",
+    "queries": 9600,
+    "avg_ms": 0.587,
+    "qps": 159.999933
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-q69jm",
+    "queries": 9600,
+    "avg_ms": 0.294,
+    "qps": 159.999931
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-q6tjj",
+    "queries": 9600,
+    "avg_ms": 0.42700000000000005,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-q828m",
+    "queries": 9600,
+    "avg_ms": 0.781,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-qfrbb",
+    "queries": 9600,
+    "avg_ms": 0.6669999999999999,
+    "qps": 159.999944
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-qg8nv",
     "queries": 9600,
     "avg_ms": 0.6980000000000001,
     "qps": 159.999947
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-xlrq4",
+    "pod": "dnsperf-baseline-q160-run1-qk2t8",
     "queries": 9600,
-    "avg_ms": 0.488,
+    "avg_ms": 0.243,
+    "qps": 159.999952
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-qlvbc",
+    "queries": 9600,
+    "avg_ms": 0.6920000000000001,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-qnrsd",
+    "queries": 9600,
+    "avg_ms": 0.776,
+    "qps": 159.999864
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-qsk5r",
+    "queries": 9600,
+    "avg_ms": 0.893,
     "qps": 159.999933
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-xm6m8",
+    "pod": "dnsperf-baseline-q160-run1-qwvfm",
     "queries": 9600,
-    "avg_ms": 0.824,
+    "avg_ms": 0.304,
+    "qps": 159.999944
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-qxqsv",
+    "queries": 9592,
+    "avg_ms": 0.318,
+    "qps": 159.851441
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-r4p7n",
+    "queries": 9600,
+    "avg_ms": 0.6930000000000001,
+    "qps": 159.999944
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-r6787",
+    "queries": 9600,
+    "avg_ms": 0.603,
+    "qps": 159.999933
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-r6k5l",
+    "queries": 9600,
+    "avg_ms": 0.555,
+    "qps": 159.999933
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-r8ffk",
+    "queries": 9600,
+    "avg_ms": 0.763,
     "qps": 159.999955
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-xrbxn",
+    "pod": "dnsperf-baseline-q160-run1-r9hvn",
     "queries": 9600,
-    "avg_ms": 0.58,
-    "qps": 159.999941
+    "avg_ms": 0.761,
+    "qps": 159.999955
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-z4kb2",
+    "pod": "dnsperf-baseline-q160-run1-rbf89",
     "queries": 9600,
-    "avg_ms": 0.589,
-    "qps": 159.999939
+    "avg_ms": 0.333,
+    "qps": 159.999955
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-z6gxz",
+    "pod": "dnsperf-baseline-q160-run1-rcjbt",
     "queries": 9600,
-    "avg_ms": 0.51,
+    "avg_ms": 1.0070000000000001,
+    "qps": 159.999944
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-rgdzz",
+    "queries": 9600,
+    "avg_ms": 0.643,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-rh295",
+    "queries": 9600,
+    "avg_ms": 0.283,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-rj5f7",
+    "queries": 9600,
+    "avg_ms": 0.752,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-rkwsj",
+    "queries": 9600,
+    "avg_ms": 0.446,
+    "qps": 159.999933
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-rl4v9",
+    "queries": 9600,
+    "avg_ms": 0.5670000000000001,
+    "qps": 159.999952
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-rl5wx",
+    "queries": 9600,
+    "avg_ms": 0.307,
+    "qps": 159.999851
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-rnk2r",
+    "queries": 9587,
+    "avg_ms": 0.352,
+    "qps": 159.774809
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-s574k",
+    "queries": 9600,
+    "avg_ms": 0.386,
+    "qps": 159.999877
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-s86nf",
+    "queries": 9600,
+    "avg_ms": 0.521,
+    "qps": 159.999925
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-s8pr9",
+    "queries": 9600,
+    "avg_ms": 0.491,
+    "qps": 159.999933
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-sd8mm",
+    "queries": 9600,
+    "avg_ms": 0.275,
+    "qps": 159.999901
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-shn5v",
+    "queries": 9600,
+    "avg_ms": 0.481,
+    "qps": 159.999896
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-sk2b4",
+    "queries": 9600,
+    "avg_ms": 0.26699999999999996,
     "qps": 159.999947
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-z9n7j",
+    "pod": "dnsperf-baseline-q160-run1-srzkh",
     "queries": 9600,
-    "avg_ms": 0.43,
-    "qps": 159.999952
+    "avg_ms": 0.364,
+    "qps": 159.999949
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-zcw77",
+    "pod": "dnsperf-baseline-q160-run1-ss2w8",
     "queries": 9600,
-    "avg_ms": 0.393,
-    "qps": 159.999952
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-zj98h",
-    "queries": 9600,
-    "avg_ms": 0.519,
-    "qps": 159.999936
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-zjpbd",
-    "queries": 9600,
-    "avg_ms": 0.48500000000000004,
+    "avg_ms": 0.22699999999999998,
     "qps": 159.999955
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-zk28z",
+    "pod": "dnsperf-baseline-q160-run1-ssxmn",
     "queries": 9600,
-    "avg_ms": 0.596,
-    "qps": 159.999941
-  },
-  {
-    "pod": "dnsperf-baseline-q160-run1-znklm",
-    "queries": 9600,
-    "avg_ms": 0.592,
+    "avg_ms": 0.533,
     "qps": 159.999952
   },
   {
-    "pod": "dnsperf-baseline-q160-run1-zztsg",
+    "pod": "dnsperf-baseline-q160-run1-t26nd",
     "queries": 9600,
-    "avg_ms": 0.683,
+    "avg_ms": 1.01,
+    "qps": 159.999928
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-t5fxm",
+    "queries": 9600,
+    "avg_ms": 0.20900000000000002,
+    "qps": 159.999947
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-t8fg2",
+    "queries": 9600,
+    "avg_ms": 0.574,
     "qps": 159.999944
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-tcrfb",
+    "queries": 9600,
+    "avg_ms": 0.261,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-th8xf",
+    "queries": 9600,
+    "avg_ms": 1.0330000000000001,
+    "qps": 159.999941
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-tkcz2",
+    "queries": 9600,
+    "avg_ms": 0.439,
+    "qps": 159.999957
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-tpbhb",
+    "queries": 9600,
+    "avg_ms": 0.33,
+    "qps": 159.999952
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-tt4pn",
+    "queries": 9600,
+    "avg_ms": 0.24600000000000002,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-tvc2r",
+    "queries": 9600,
+    "avg_ms": 0.513,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-tvzfs",
+    "queries": 9600,
+    "avg_ms": 0.386,
+    "qps": 159.999955
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-v4zr7",
+    "queries": 9600,
+    "avg_ms": 0.612,
+    "qps": 159.999925
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-v5vhl",
+    "queries": 9600,
+    "avg_ms": 0.397,
+    "qps": 159.999955
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-v7mvg",
+    "queries": 9600,
+    "avg_ms": 0.453,
+    "qps": 159.999944
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-v7xf4",
+    "queries": 9600,
+    "avg_ms": 0.629,
+    "qps": 159.999947
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-vds4z",
+    "queries": 9600,
+    "avg_ms": 0.712,
+    "qps": 159.99992
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-vdszq",
+    "queries": 9595,
+    "avg_ms": 0.488,
+    "qps": 159.904245
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-vrtb2",
+    "queries": 9600,
+    "avg_ms": 0.589,
+    "qps": 159.999947
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-vvbj4",
+    "queries": 9600,
+    "avg_ms": 0.6849999999999999,
+    "qps": 159.999952
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-vx7nm",
+    "queries": 9600,
+    "avg_ms": 0.426,
+    "qps": 159.999952
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-w25kf",
+    "queries": 9600,
+    "avg_ms": 0.40099999999999997,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-w5jhr",
+    "queries": 9600,
+    "avg_ms": 0.19,
+    "qps": 159.999955
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-wdc48",
+    "queries": 9600,
+    "avg_ms": 1.075,
+    "qps": 159.999941
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-wgcmn",
+    "queries": 9600,
+    "avg_ms": 0.857,
+    "qps": 159.999952
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-wh86s",
+    "queries": 9600,
+    "avg_ms": 0.732,
+    "qps": 159.999925
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-wllvn",
+    "queries": 9600,
+    "avg_ms": 0.541,
+    "qps": 159.999952
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-wpmbz",
+    "queries": 9600,
+    "avg_ms": 0.662,
+    "qps": 159.999928
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-wqc4q",
+    "queries": 9600,
+    "avg_ms": 0.381,
+    "qps": 159.999949
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-wzc2g",
+    "queries": 9600,
+    "avg_ms": 0.43600000000000005,
+    "qps": 159.999947
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-xfrvs",
+    "queries": 9600,
+    "avg_ms": 0.28800000000000003,
+    "qps": 159.999901
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-xgqgr",
+    "queries": 9600,
+    "avg_ms": 0.348,
+    "qps": 159.999952
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-xjbz5",
+    "queries": 9600,
+    "avg_ms": 0.91,
+    "qps": 159.998739
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-xm6mq",
+    "queries": 9600,
+    "avg_ms": 0.39399999999999996,
+    "qps": 159.999955
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-xnsqq",
+    "queries": 9600,
+    "avg_ms": 0.643,
+    "qps": 159.999923
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-xqq7n",
+    "queries": 9600,
+    "avg_ms": 0.758,
+    "qps": 159.999955
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-xs5qb",
+    "queries": 9600,
+    "avg_ms": 0.625,
+    "qps": 159.999957
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-xsrjn",
+    "queries": 9600,
+    "avg_ms": 0.5730000000000001,
+    "qps": 159.999941
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-xsxgp",
+    "queries": 9600,
+    "avg_ms": 0.64,
+    "qps": 159.999941
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-xwh8j",
+    "queries": 9600,
+    "avg_ms": 0.593,
+    "qps": 159.999933
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-xxp5m",
+    "queries": 9600,
+    "avg_ms": 0.721,
+    "qps": 159.999947
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-z4f5c",
+    "queries": 9600,
+    "avg_ms": 0.703,
+    "qps": 159.999931
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-z9dzm",
+    "queries": 9600,
+    "avg_ms": 0.633,
+    "qps": 159.999936
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-zcfnl",
+    "queries": 9600,
+    "avg_ms": 0.5760000000000001,
+    "qps": 159.999955
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-zhsn6",
+    "queries": 9600,
+    "avg_ms": 0.54,
+    "qps": 159.999939
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-zpndp",
+    "queries": 9600,
+    "avg_ms": 0.703,
+    "qps": 159.999928
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-ztrlk",
+    "queries": 9600,
+    "avg_ms": 0.633,
+    "qps": 159.999933
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-zx4zt",
+    "queries": 9600,
+    "avg_ms": 0.18100000000000002,
+    "qps": 159.999936
+  },
+  {
+    "pod": "dnsperf-baseline-q160-run1-zxblv",
+    "queries": 9600,
+    "avg_ms": 0.968,
+    "qps": 159.998888
   }
 ]
