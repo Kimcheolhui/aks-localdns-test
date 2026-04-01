@@ -26,19 +26,19 @@ Kubernetes 버전 : 1.33.7
 
 ### 2.2 실험 매트릭스
 
-| 변수 | 조건 |
-|------|------|
-| 노드 수 | 5, 10 |
-| LocalDNS | OFF (baseline), ON (localdns) |
-| Pod당 QPS | 20, 40, 80, 160 |
-| 반복 횟수 | 3회 (조건 당) |
+| 변수      | 조건                          |
+| --------- | ----------------------------- |
+| 노드 수   | 5, 10                         |
+| LocalDNS  | OFF (baseline), ON (localdns) |
+| Pod당 QPS | 20, 40, 80, 160               |
+| 반복 횟수 | 3회 (조건 당)                 |
 
 > 노드 수에 따라 CoreDNS replica 수와 총 Pod 수가 변동한다.
 
 | 노드 수 | dnsperf Pod | CoreDNS replica (예상) |
-|---------|-------------|----------------------|
-| 5 | 250 | 2 |
-| 10 | 500 | 3~4 |
+| ------- | ----------- | ---------------------- |
+| 5       | 250         | 2                      |
+| 10      | 500         | 3~4                    |
 
 ### 2.3 클러스터 프로비저닝 (azd + Bicep)
 
@@ -82,11 +82,11 @@ az aks nodepool scale \
 
 dnsperf가 resolve할 Internal 도메인이 실제로 존재해야 하므로, Headless Service(`clusterIP: None`)를 3개 namespace에 배포한다.
 
-| Namespace | Services |
-|-----------|----------|
-| `app-a` | api-gateway, user-service, order-service, payment-service, notification-service |
-| `app-b` | product-catalog, inventory-service, search-service, recommendation-service, cache-service |
-| `app-c` | auth-service, logging-service, monitoring-service, config-service, messaging-service |
+| Namespace | Services                                                                                  |
+| --------- | ----------------------------------------------------------------------------------------- |
+| `app-a`   | api-gateway, user-service, order-service, payment-service, notification-service           |
+| `app-b`   | product-catalog, inventory-service, search-service, recommendation-service, cache-service |
+| `app-c`   | auth-service, logging-service, monitoring-service, config-service, messaging-service      |
 
 > 총 15개 Headless Service → 15개 internal FQDN 생성
 
@@ -94,12 +94,12 @@ dnsperf가 resolve할 Internal 도메인이 실제로 존재해야 하므로, He
 
 dnsperf에 입력할 도메인 리스트를 ConfigMap으로 모든 Pod에 마운트한다.
 
-| 구분 | 개수 | 예시 |
-|------|------|------|
-| Internal (클러스터 서비스 FQDN) | 17개 | `api-gateway.app-a.svc.cluster.local`, `kubernetes.default.svc.cluster.local` 등 |
-| External (Azure 서비스) | 10개 | `login.microsoftonline.com`, `management.azure.com`, `vault.azure.net` 등 |
-| External (일반 도메인) | 5개 | `google.com`, `github.com`, `amazonaws.com` 등 |
-| **합계** | **32개** | |
+| 구분                            | 개수     | 예시                                                                             |
+| ------------------------------- | -------- | -------------------------------------------------------------------------------- |
+| Internal (클러스터 서비스 FQDN) | 17개     | `api-gateway.app-a.svc.cluster.local`, `kubernetes.default.svc.cluster.local` 등 |
+| External (Azure 서비스)         | 10개     | `login.microsoftonline.com`, `management.azure.com`, `vault.azure.net` 등        |
+| External (일반 도메인)          | 5개      | `google.com`, `github.com`, `amazonaws.com` 등                                   |
+| **합계**                        | **32개** |                                                                                  |
 
 ---
 
@@ -109,27 +109,27 @@ dnsperf에 입력할 도메인 리스트를 ConfigMap으로 모든 Pod에 마운
 
 Pod당 QPS를 변경하여 4가지 부하 수준에서 테스트한다. Pod 수는 노드 수에 비례한다.
 
-| QPS 조건 | Pod당 QPS (`-Q`) | 총 QPS (5노드/250 Pod) | 총 QPS (10노드/500 Pod) |
-|----------|------------------|------------------------|-------------------------|
-| **Low** | 20 | 5,000 | 10,000 |
-| **Medium** | 40 | 10,000 | 20,000 |
-| **High** | 80 | 20,000 | 40,000 |
-| **Very High** | 160 | 40,000 | 80,000 |
+| QPS 조건      | Pod당 QPS (`-Q`) | 총 QPS (5노드/250 Pod) | 총 QPS (10노드/500 Pod) |
+| ------------- | ---------------- | ---------------------- | ----------------------- |
+| **Low**       | 20               | 5,000                  | 10,000                  |
+| **Medium**    | 40               | 10,000                 | 20,000                  |
+| **High**      | 80               | 20,000                 | 40,000                  |
+| **Very High** | 160              | 40,000                 | 80,000                  |
 
 공통 설정:
 
-| 항목 | 값 |
-|------|------|
-| 노드 | D16as_v6 × 5 또는 10 (노드당 ~50 Pod) |
-| Image | `guessi/dnsperf:latest` |
-| dnsperf 고정 옵션 | `-c 10` `-S 10` `-l 60` `-v` |
-| 반복 횟수 | **3회** (조건 당) |
+| 항목              | 값                                    |
+| ----------------- | ------------------------------------- |
+| 노드              | D16as_v6 × 5 또는 10 (노드당 ~50 Pod) |
+| Image             | `guessi/dnsperf:latest`               |
+| dnsperf 고정 옵션 | `-c 10` `-S 10` `-l 60` `-v`          |
+| 반복 횟수         | **3회** (조건 당)                     |
 
 ### 4.2 dnsperf Job 매니페스트
 
-| 매니페스트 | Pod 수 | 용도 |
-|-----------|--------|------|
-| `manifests/dnsperf-job-node5.yaml` | 250 (parallelism/completions) | 5노드 실험 |
+| 매니페스트                          | Pod 수                        | 용도        |
+| ----------------------------------- | ----------------------------- | ----------- |
+| `manifests/dnsperf-job-node5.yaml`  | 250 (parallelism/completions) | 5노드 실험  |
 | `manifests/dnsperf-job-node10.yaml` | 500 (parallelism/completions) | 10노드 실험 |
 
 Pod를 병렬 실행하는 Kubernetes Job. `-Q 40`이 기본값이며, `run-test.sh`가 실행 시 sed로 QPS를 동적 치환한다.
@@ -160,9 +160,9 @@ Pod를 병렬 실행하는 Kubernetes Job. `-Q 40`이 기본값이며, `run-test
 
 ### 4.5 리포트 스크립트
 
-| 스크립트 | 용도 |
-|----------|------|
-| `scripts/collect_summary.py` | 전체 run summary를 `results/summary.json`으로 통합 |
+| 스크립트                     | 용도                                                   |
+| ---------------------------- | ------------------------------------------------------ |
+| `scripts/collect_summary.py` | 전체 run summary를 `results/summary.json`으로 통합     |
 | `scripts/generate_report.py` | `results/summary.json`에서 `experiment-result.md` 생성 |
 
 ---
@@ -175,13 +175,13 @@ Pod를 병렬 실행하는 Kubernetes Job. `-Q 40`이 기본값이며, `run-test
 
 ### Phase 1: Baseline — 5노드
 
-| 단계 | 작업 |
-|------|------|
-| 1-1 | `azd provision`으로 AKS 클러스터 생성 (userpool 5노드) |
-| 1-2 | `kubectl apply -f manifests/dummy-services.yaml` |
-| 1-3 | `kubectl apply -f manifests/dnsperf-queryfile-cm.yaml` |
-| 1-4 | CoreDNS replica 수 확인: `kubectl get deploy coredns -n kube-system` |
-| 1-5 | QPS 20 → 40 → 80 → 160 각 3회 실행 |
+| 단계 | 작업                                                                 |
+| ---- | -------------------------------------------------------------------- |
+| 1-1  | `azd provision`으로 AKS 클러스터 생성 (userpool 5노드)               |
+| 1-2  | `kubectl apply -f manifests/dummy-services.yaml`                     |
+| 1-3  | `kubectl apply -f manifests/dnsperf-queryfile-cm.yaml`               |
+| 1-4  | CoreDNS replica 수 확인: `kubectl get deploy coredns -n kube-system` |
+| 1-5  | QPS 20 → 40 → 80 → 160 각 3회 실행                                   |
 
 > 5노드 실험이므로 `dnsperf-job-node5.yaml` (250 Pod) 사용
 
@@ -233,7 +233,7 @@ az aks nodepool update \
   --max-surge 0 \
   --max-unavailable 1
 
-# resolv.conf 확인 (nameserver가 169.254.10.10인지)
+# resolv.conf 확인 (nameserver가 169.254.10.10 또는 169.254.10.11인지)
 kubectl run verify-dns --image=busybox --rm -it --restart=Never \
   --overrides='{"spec":{"nodeSelector":{"agentpool":"userpool"}}}' \
   -- cat /etc/resolv.conf
@@ -291,10 +291,10 @@ python3 scripts/generate_report.py
 
 ## 7. 필요 리소스 정리
 
-| 리소스 | 스펙 |
-|--------|------|
-| AKS system pool | Standard_D16as_v6 x 2 |
-| AKS user pool | Standard_D16as_v6 x 5 → 10 (스케일링) |
+| 리소스          | 스펙                                  |
+| --------------- | ------------------------------------- |
+| AKS system pool | Standard_D16as_v6 x 2                 |
+| AKS user pool   | Standard_D16as_v6 x 5 → 10 (스케일링) |
 
 > ⚠️ 실험 완료 후 반드시 리소스 삭제  
 > `azd down --purge --force`
@@ -311,7 +311,6 @@ aks-localdns-test/
 │   ├── main.bicep                  # Bicep 진입점 (subscription scope)
 │   ├── main.parameters.json        # Bicep 파라미터
 │   ├── aks.bicep                   # AKS 클러스터 리소스 정의
-│   ├── localdns-enable.sh          # LocalDNS 활성화
 │   └── localdnsconfig.json         # LocalDNS 설정 파일
 ├── manifests/
 │   ├── dummy-services.yaml         # Internal DNS 대상 서비스
