@@ -3,7 +3,7 @@
 전체 실험 결과를 하나의 summary.json으로 통합.
 
 사용법:
-  python3 scripts/collect_summary.py
+  python3 scripts/02_collect_summary.py
 
 results/{N}nodes/qps-*/[baseline|localdns]/run*/summary.json 을 모두 읽어서
 results/summary.json 으로 출력한다.

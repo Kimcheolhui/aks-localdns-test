@@ -3,8 +3,8 @@
 dnsperf 결과 집계 스크립트.
 
 사용법:
-  python3 scripts/aggregate_results.py <qps> <baseline|localdns>
-  예: python3 scripts/aggregate_results.py 40 baseline
+  python3 scripts/01_aggregate_results.py <qps> <baseline|localdns>
+  예: python3 scripts/01_aggregate_results.py 40 baseline
 
 각 run 디렉토리의 Pod 로그를 파싱하여:
   1. 개별 쿼리 latency를 수집 (-v 옵션 출력)
@@ -141,7 +141,7 @@ def aggregate_run(run_dir: Path, phase: str, qps: str) -> dict | None:
 
 def main():
     if len(sys.argv) < 3:
-        print("Usage: python3 scripts/aggregate_results.py <qps> <baseline|localdns> [nodes=5]")
+        print("Usage: python3 scripts/01_aggregate_results.py <qps> <baseline|localdns> [nodes=5]")
         sys.exit(1)
 
     qps = sys.argv[1]

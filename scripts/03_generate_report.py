@@ -3,7 +3,7 @@
 실험 결과 마크다운 리포트 생성.
 
 사용법:
-  python3 scripts/generate_report.py
+  python3 scripts/03_generate_report.py
 
 results/summary.json 을 읽어서 experiment-result.md 를 생성한다.
 노드 수(5, 10) × QPS(20, 40, 80, 160) × Phase(baseline, localdns) 전체 매트릭스를 포함.
@@ -37,7 +37,7 @@ COMPARISON_METRICS = [
 def load_summary() -> dict:
     summary_path = Path("results/summary.json")
     if not summary_path.exists():
-        print("Error: results/summary.json not found. Run collect_summary.py first.")
+        print("Error: results/summary.json not found. Run 02_collect_summary.py first.")
         sys.exit(1)
     with open(summary_path) as f:
         return json.load(f)

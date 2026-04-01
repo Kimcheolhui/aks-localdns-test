@@ -19,6 +19,7 @@ set -euo pipefail
 # Phase 5: 결과 통합 및 리포트 생성
 # =============================================================================
 
+# 시작 phase 인자 처리
 START_PHASE=1
 
 while [[ $# -gt 0 ]]; do
@@ -40,6 +41,7 @@ if [[ "${START_PHASE}" -lt 1 || "${START_PHASE}" -gt 5 ]]; then
   exit 1
 fi
 
+# 실험 공통 설정
 RESOURCE_GROUP="rg-localdns-test"
 CLUSTER_NAME="aks-localdns-test"
 NODEPOOL="userpool"
@@ -56,10 +58,12 @@ source "${SCRIPT_DIR}/.venv/bin/activate"
 # 스크립트 전체에서 cwd를 프로젝트 루트로 고정
 cd "${PROJECT_DIR}"
 
+# 공통 로그 출력
 log() {
   echo "[$(date '+%Y-%m-%d %H:%M:%S')] $*"
 }
 
+# 하나의 phase에서 QPS 조건(20, 40, 80, 160)들을 순차 실행하고 결과 집계
 run_qps_loop() {
   local phase=$1
   local nodes=$2
@@ -67,13 +71,14 @@ run_qps_loop() {
   for qps in "${QPS_LIST[@]}"; do
     log "--- ${nodes}nodes / ${phase} / QPS ${qps} ---"
     "${SCRIPT_DIR}/run-test.sh" "${phase}" "${qps}" "${RUNS}" "${nodes}"
-    python3 "${SCRIPT_DIR}/aggregate_results.py" "${qps}" "${phase}" "${nodes}"
+    python3 "${SCRIPT_DIR}/01_aggregate_results.py" "${qps}" "${phase}" "${nodes}"
 
     log "QPS 간 쿨다운 ${QPS_INTERVAL}s..."
     sleep ${QPS_INTERVAL}
   done
 }
 
+# 노드풀 크기를 조정하고, 노드 개수에 따른 CoreDNS replica 상태가 적합한지 확인
 scale_nodepool() {
   local count=$1
   local current
@@ -95,6 +100,8 @@ scale_nodepool() {
   fi
 
   # userpool 노드 수 기준: 5 → CoreDNS 2개, 10 → CoreDNS 3개
+  # 참고) CoreDNS replica는 클러스터 전체 노드 수 기준으로 조정된다.
+  # 참고) 우측 조건 중 max값 적용: {"coresToReplicas":[[1,2],[512,3],[1024,4],[2048,5]],"nodesToReplicas":[[1,2],[8,3],[16,4],[32,5]]}
   local expected_replicas
   if [ ${count} -le 5 ]; then
     expected_replicas=2
@@ -128,6 +135,7 @@ scale_nodepool() {
   exit 1
 }
 
+# LocalDNS를 적용하고 노드 내부 resolv.conf 반영 여부를 검증
 enable_localdns() {
   log "LocalDNS 활성화 중..."
   az aks nodepool update \
@@ -164,6 +172,7 @@ enable_localdns() {
   exit 1
 }
 
+# Phase 1 시작 전 baseline 상태의 CoreDNS replica를 점검
 check_coredns_initial() {
   local expected=$1
   log "Phase 1 초기 CoreDNS replica 확인 (기대값: ${expected})..."
@@ -182,6 +191,7 @@ check_coredns_initial() {
   exit 1
 }
 
+# 전체 phase 실행 시작
 # =============================================================================
 log "=========================================="
 log " AKS LocalDNS 실험 시작 (Phase ${START_PHASE}부터)"
@@ -264,11 +274,11 @@ log " Phase 5: 결과 통합 및 리포트 생성"
 log "=========================================="
 
 cd "${PROJECT_DIR}"
-python3 "${SCRIPT_DIR}/collect_summary.py"
-python3 "${SCRIPT_DIR}/generate_report.py"
+python3 "${SCRIPT_DIR}/02_collect_summary.py"
+python3 "${SCRIPT_DIR}/03_generate_report.py"
 fi
 
 log ""
 log "=========================================="
-log " 전체 실험 완료!"
+log " 전체 실험 완료"
 log "=========================================="

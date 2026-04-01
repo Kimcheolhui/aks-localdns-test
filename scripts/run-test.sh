@@ -1,9 +1,16 @@
 #!/bin/bash
 set -euo pipefail
 
+# =============================================================================
+# AKS LocalDNS 실험 단일 조건 실행 스크립트
+#
+# 하나의 실험 조건(phase, QPS, runs, nodes)에 대해서 dnsperf Job을 생성하고,
+# 완료까지 대기한 뒤 pod 로그를 results 디렉터리에 수집합니다.
+#
 # 사용법: ./scripts/run-test.sh <phase> <qps> [runs] [nodes]
 #   예: ./scripts/run-test.sh baseline 40 3 5
 #       ./scripts/run-test.sh localdns 80 3 10
+# =============================================================================
 
 PHASE=${1:?Usage: $0 <baseline|localdns> <qps> [runs=3] [nodes=5]}
 QPS=${2:?Usage: $0 <baseline|localdns> <qps> [runs=3] [nodes=5]}
@@ -13,6 +20,7 @@ NAMESPACE="dnsperf"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_DIR="$(dirname "${SCRIPT_DIR}")"
 
+# 입력 인자와 실행 대상 매니페스트 확인
 MANIFEST="${PROJECT_DIR}/manifests/dnsperf-job-node${NODES}.yaml"
 if [ ! -f "${MANIFEST}" ]; then
   echo "Error: manifest not found: ${MANIFEST}"
@@ -22,6 +30,7 @@ fi
 echo "=== Config: phase=${PHASE}, qps=${QPS}, runs=${RUNS}, nodes=${NODES} ==="
 echo "    Manifest: ${MANIFEST}"
 
+# 지정한 횟수만큼 동일 조건 실험 반복
 for i in $(seq 1 ${RUNS}); do
   JOB_NAME="dnsperf-${PHASE}-q${QPS}-run${i}"
   OUTPUT_DIR="${PROJECT_DIR}/results/${NODES}nodes/qps-${QPS}/${PHASE}/run${i}"
@@ -32,13 +41,13 @@ for i in $(seq 1 ${RUNS}); do
   echo " [Run ${i}/${RUNS}] ${JOB_NAME} (QPS=${QPS}, ${NODES} nodes)"
   echo "========================================"
 
-  # Job 생성 (job name + QPS 변경하여 apply)
+  # 이번 run에 맞는 Job 생성
   sed -e "s/name: dnsperf-baseline-run1/name: ${JOB_NAME}/" \
       -e "s/-Q 40/-Q ${QPS}/" \
     "${MANIFEST}" \
     | kubectl apply -f -
 
-  # Job 완료 대기 (polling 방식 — watch 연결 끊김 방지)
+  # Job 완료 또는 실패까지 대기
   echo "Waiting for job completion..."
   elapsed=0
   timeout=600
@@ -61,18 +70,18 @@ for i in $(seq 1 ${RUNS}); do
     exit 1
   fi
 
-  # 결과 수집 (병렬)
+  # 실행 결과 로그 수집
   echo "Collecting results..."
   PODS=$(kubectl get pods -n ${NAMESPACE} -l job-name=${JOB_NAME} -o jsonpath='{.items[*].metadata.name}')
   echo "${PODS}" | tr ' ' '\n' | xargs -P 20 -I {} sh -c \
     "kubectl logs -n ${NAMESPACE} {} > \"${OUTPUT_DIR}/raw/{}.log\" 2>/dev/null"
 
-  # Job 삭제 (다음 run을 위해)
+  # 다음 run을 위해 Job 정리
   kubectl delete job "${JOB_NAME}" -n ${NAMESPACE} --ignore-not-found
 
   echo "[Run ${i}] Done. Results in ${OUTPUT_DIR}"
 
-  # 다음 run 전 30초 대기
+  # 다음 run 전 30초 간격 확보
   if [ ${i} -lt ${RUNS} ]; then
     echo "Waiting 30s before next run..."
     sleep 30
