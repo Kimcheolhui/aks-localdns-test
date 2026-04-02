@@ -1,3 +1,4 @@
 *.log
 
-.venvlocaldns-dnscache/results/
+.venv
+localdns-dnscache/results/
