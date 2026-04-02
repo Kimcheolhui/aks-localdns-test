@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dns-diag
+  namespace: default
+spec:
+  nodeSelector:
+    agentpool: userpool
+  containers:
+  - name: diag
+    image: nicolaka/netshoot:latest
+    command: ["sleep", "3600"]
+  restartPolicy: Never
+  terminationGracePeriodSeconds: 0
