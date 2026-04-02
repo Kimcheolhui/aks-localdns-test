@@ -2,3 +2,5 @@
 
 .venv
 localdns-dnscache/results/
+localdns-resource/results/
+localdns-resource/results/
